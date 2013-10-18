@@ -19,3 +19,6 @@
 [submodule "fuel/packages/email"]
 	path = fuel/packages/email
 	url = git://github.com/fuel/email.git
+[submodule "fuel/vendor/opauth/opauth/lib/Opauth/Strategy/OAuth"]
+	path = fuel/vendor/opauth/opauth/lib/Opauth/Strategy/OAuth
+	url = https://github.com/BenWoodford/opauth-oauth.git

@@ -5,10 +5,10 @@
 
 return array(
 	'default' => array(
-		'connection'  => array(
-			'dsn'        => 'mysql:host=localhost;dbname=fuel_dev',
-			'username'   => 'root',
-			'password'   => 'root',
-		),
-	),
+		'connection' => array(
+			'dsn' => 'mysql:host=127.0.0.1;dbname=staffs_lan',
+			'username' => 'staffs_lan',
+			'password' => 'MGNkNGEwNDFk',
+		)
+	)
 );
