@@ -11,6 +11,7 @@ class Model_Seat extends \Orm\Model
 		'seat_width',
 		'seat_height',
 		'seat_direction',
+		'seat_type',
 		'created_at',
 		'updated_at',
 	);
@@ -41,6 +42,8 @@ class Model_Seat extends \Orm\Model
 		$val->add_field('seat_height', 'Seat Height', 'required|valid_string[numeric]');
 		$val->add_field('seat_width', 'Seat Width', 'required|valid_string[numeric]');
 		$val->add_field('seat_direction', 'Seat Direction', 'required|max_length[4]');
+		$val->add_field('seat_type', 'Seat Type', 'required|max_length[16]');
+
 		return $val;
 	}
 

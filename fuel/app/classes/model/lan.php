@@ -55,6 +55,16 @@ class Model_Lan extends \Orm\Model
 		return $nextlan;
 	}
 
+	public function getDates() {
+		$p = new DatePeriod(
+			new DateTime($this->lan_start),
+			new DateInterval('P1D'),
+			(new DateTime($this->lan_end))->modify("+1 day")
+		);
+
+		return $p;
+	}
+
 	protected static $_has_many = array(
 	    'rooms' => array(
 	        'key_from' => 'id',
@@ -62,7 +72,28 @@ class Model_Lan extends \Orm\Model
 	        'key_to' => 'lan_id',
 	        'cascade_save' => true,
 	        'cascade_delete' => false,
-	    )
+	    ),
+	    'tickets' => array(
+	        'key_from' => 'id',
+	        'model_to' => 'Model_Ticket',
+	        'key_to' => 'lan_id',
+	        'cascade_save' => true,
+	        'cascade_delete' => false,
+	    ),
+	    'servers' => array(
+	    	'key_from' => 'id',
+	    	'model_to' => 'Model_Server',
+	    	'key_to' => 'lan_id',
+	    	'cascade_save' => true,
+	    	'cascade_delete' => false,
+	    ),
+	    'schedule_items' => array(
+	    	'key_from' => 'id',
+	    	'model_to' => 'Model_Schedule_Item',
+	    	'key_to' => 'lan_id',
+	    	'cascade_save' => true,
+	    	'cascade_delete' => false
+	    ),
 	);
 
 }

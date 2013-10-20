@@ -180,6 +180,7 @@ return array(
 			'Fuel\\Core\\ViewModel',
 			'Fuel\\Core\\Validation',
 			'Closure',
+			'Facebook',
 		),
 	),
 

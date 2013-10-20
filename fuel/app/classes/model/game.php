@@ -31,4 +31,14 @@ class Model_Game extends \Orm\Model
 		return $val;
 	}
 
+	protected static $_has_many = array(
+	    'servers' => array(
+	    	'key_from' => 'id',
+	    	'model_to' => 'Model_Server',
+	    	'key_to' => 'game_id',
+	    	'cascade_save' => true,
+	    	'cascade_delete' => false,
+	    ),
+	);
+
 }

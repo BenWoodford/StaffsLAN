@@ -28,6 +28,8 @@ class Controller_Auth extends Controller_Base {
             // fetch the provider name from the opauth response so we can display a message
             $provider = $opauth->get('auth.provider', '?');
 
+            $done = false;
+
             // deal with the result of the callback process
             switch ($status)
             {
@@ -38,6 +40,7 @@ class Controller_Auth extends Controller_Base {
                     // and set the redirect url for this status
                 	echo 'linked!';
                     $url = '';
+                    $done = true;
                 break;
 
                 // the provider was known and linked, the linked account as logged-in
@@ -47,6 +50,7 @@ class Controller_Auth extends Controller_Base {
                     // and set the redirect url for this status
                     $url = '';
                     echo 'logged in';
+                    $done = true;
                 break;
 
                 // we don't know this provider login, ask the user to create a local account first
@@ -55,7 +59,7 @@ class Controller_Auth extends Controller_Base {
                     //\Messages::info(sprintf(__('login.register-first'), ucfirst($provider)));
                     // and set the redirect url for this status
                     //$url = 'users/register';
-                    echo 'register...';
+                    echo 'register';
                 break;
 
                 // we didn't know this provider login, but enough info was returned to auto-register the user
@@ -65,14 +69,34 @@ class Controller_Auth extends Controller_Base {
                     // and set the redirect url for this status
                     $url = '';
                     echo 'registered';
+                    $done = true;
                 break;
 
                 default:
                     throw new \FuelException('Auth_Opauth::login_or_register() has come up with a result that we dont know how to handle.');
             }
 
+            // Update profile info
+            if($done) {                
+                if (Config::get('auth.driver', 'Simpleauth') == 'Ormauth')
+                {
+                    $current_user = Auth::check() ? Model\Auth_User::find_by_username(Auth::get_screen_name()) : null;
+                }
+                else
+                {
+                    $current_user = Auth::check() ? Model_User::find_by_username(Auth::get_screen_name()) : null;
+                }
+
+                if($current_user != null) {
+                    $current_user->student_number = $opauth->get('auth.raw.user_fields.StudentNumber');
+                    $current_user->steam = $opauth->get('auth.raw.user_fields.steam');
+                    $current_user->avatar_url = $opauth->get('auth.raw.user.links.avatar');
+                    $current_user->save();
+                }
+            }
+
             // redirect to the url set
-            //\Response::redirect($url);
+            \Response::redirect($url);
         }
 
         // deal with Opauth exceptions

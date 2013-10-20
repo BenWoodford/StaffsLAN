@@ -1,0 +1,83 @@
+#schedule {
+	.day .box-content {
+		padding: 0px!important;
+	}
+
+	#multiday .event {
+		margin-top: 5px;
+		margin-bottom: 5px;
+	}
+
+	.time-row {
+		@row-padding: 30px;
+		height: 50px;
+		border-bottom: 1px solid #ddd;
+		padding-left: @row-padding;
+		padding-top: 5px;
+		padding-right: 10px;
+		padding-bottom: 5px;
+		overflow-y: visible;
+		position: relative;
+
+		&:last-child {
+			border-bottom: none;
+		}
+
+		.time {
+			background: @lightColour;
+			color: #fff;
+			font-weight: bold;
+			.border-radius(2px);
+			padding: 3px;
+			margin-left: (-@row-padding*2 + 5);
+			margin-top: 0px;
+			display: block;
+			width: auto;
+			float: left;
+		}
+	}
+
+	.day .event {
+		position: absolute;
+		left: 30px;
+		right: 20px;
+	}
+
+	.event {
+		padding: 5px;
+		.border-radius(2px);
+		border-width: 1px;
+		border-style: solid;
+		z-index: 99;
+
+		&.orange {
+			border-color: #F88B73;
+			background: #FFCB94;
+		}
+
+		&.yellow {
+			background: #FFFEB0;
+			border-color: #D5D24E;
+		}
+
+		&.green {
+			border-color: #649c21;
+			background: #bdea74;
+		}
+
+		&.pink {
+			background: #FFD3E5;
+			border-color: #EB81AB;
+			//color: #fff;
+		}
+
+		&.gold {
+			background: #FFD581;
+			border-color: #ECAF34;
+		}
+	}
+}
+
+#events_list {
+	display: none;
+}

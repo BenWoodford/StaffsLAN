@@ -22,3 +22,6 @@
 [submodule "fuel/vendor/opauth/opauth/lib/Opauth/Strategy/OAuth"]
 	path = fuel/vendor/opauth/opauth/lib/Opauth/Strategy/OAuth
 	url = https://github.com/BenWoodford/opauth-oauth.git
+[submodule "fuel/app/vendor/facebook"]
+	path = fuel/app/vendor/facebook
+	url = https://github.com/facebook/facebook-php-sdk

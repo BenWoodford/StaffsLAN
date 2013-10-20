@@ -7,6 +7,11 @@
  */
 class Controller_Map extends Controller_Base
 {
+	public function before() {
+		Asset::js('map.js', array(), 'page_assets');
+		parent::before();
+	}
+
 	public function action_index()
 	{
 		$data = array();

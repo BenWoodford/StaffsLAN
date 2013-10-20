@@ -8,6 +8,9 @@ class Model_User extends \Orm\Model
 		'password',
 		'group',
 		'email',
+		'steam',
+		'student_number',
+		'avatar_url',
 		'last_login',
 		'login_hash',
 		'profile_fields',
@@ -27,8 +30,13 @@ class Model_User extends \Orm\Model
 	);
 	protected static $_table_name = 'users';
 
-	public function getXFData() {
-		
-	}
-
+	protected static $_has_many = array(
+	    'tickets' => array(
+	        'key_from' => 'student_number',
+	        'model_to' => 'Model_Ticket',
+	        'key_to' => 'student_number',
+	        'cascade_save' => false,
+	        'cascade_delete' => false,
+	    )
+	);
 }

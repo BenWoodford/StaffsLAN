@@ -19,6 +19,12 @@ class Controller_Base extends Controller_Template {
 		// Set a global variable so views can use it
 		View::set_global('current_user', $this->current_user);
 
+		View::set_global('custom_config', Config::load('custom'));
+
+		$facebook = new Facebook(array('appId' => '565533596803930', 'secret' => 'ed4f20e2f1e2cd55a3a0968c58980785'));
+
+		View::set_global('facebook', $facebook);
+
 		echo View::forge('header');	
 	}
 

@@ -30,6 +30,12 @@ return array(
 				21 => '022_alter_seats',
 				22 => '023_alter_seats',
 				23 => '024_alter_seats',
+				24 => '025_alter_seats',
+				25 => '026_alter_users',
+				26 => '027_alter_users',
+				27 => '028_create_tickets',
+				28 => '029_alter_servers',
+				29 => '030_alter_schedule_items',
 			),
 		),
 		'module' => 
