@@ -36,7 +36,7 @@ return array(
      * 'get'     - Works cross-domain, but may be limited or corrupted by browser URL length limit
      *             (eg. IE8/IE9 has 2083-char limit).
      */
-     //'callback_transport' => 'session',
+    'callback_transport' => 'session',
     'security_salt' => 'Yd{^5DC82(bXwG-Hga^/@%G} 0qj#?^W:`asig`$>Hw0skFz|o_mi7GV! {+8dfR',
     'security_iteration' => 300,
     'security_timeout' => '2 minutes',

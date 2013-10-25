@@ -94,6 +94,13 @@ class Model_Lan extends \Orm\Model
 	    	'cascade_save' => true,
 	    	'cascade_delete' => false
 	    ),
+	    'surveys' => array(
+	    	'key_from' => 'id',
+	    	'model_to' => 'Model_Survey',
+	    	'key_to' => 'lan_id',
+	    	'cascade_save' => true,
+	    	'cascade_delete' => false,
+	    ),
 	);
 
 }

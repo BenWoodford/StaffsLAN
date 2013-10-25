@@ -23,6 +23,7 @@ class Controller_Auth extends Controller_Base {
         {
             // get the Opauth object
             $opauth = \Auth_Opauth::forge(false);
+
             // and process the callback
             $status = $opauth->login_or_register();
             // fetch the provider name from the opauth response so we can display a message
@@ -78,14 +79,7 @@ class Controller_Auth extends Controller_Base {
 
             // Update profile info
             if($done) {                
-                if (Config::get('auth.driver', 'Simpleauth') == 'Ormauth')
-                {
-                    $current_user = Auth::check() ? Model\Auth_User::find_by_username(Auth::get_screen_name()) : null;
-                }
-                else
-                {
-                    $current_user = Auth::check() ? Model_User::find_by_username(Auth::get_screen_name()) : null;
-                }
+                $current_user = Model_User::getCurrentUser();
 
                 if($current_user != null) {
                     $current_user->student_number = $opauth->get('auth.raw.user_fields.StudentNumber');
@@ -96,12 +90,13 @@ class Controller_Auth extends Controller_Base {
             }
 
             // redirect to the url set
-            \Response::redirect($url);
+            //\Response::redirect($url);
         }
 
         // deal with Opauth exceptions
         catch (\OpauthException $e)
         {
+            echo "<h2>OAuth2 Error!</h2>";
         	echo $e->getMessage();
             //\Messages::error($e->getMessage());
             //\Response::redirect_back();

@@ -17,7 +17,38 @@ class Controller_Map extends Controller_Base
 		$data = array();
 		$data['rooms'] = $rooms = Model_Lan::nextLAN()->rooms;
 
+		//if(!$this->currentUser->hasSeat())
+			Messages::error("You haven't booked your seat below yet, make sure you do or you'll have to go with what's left when you arrive!");
+
 		$view = View::forge('map', $data);
 		return Response::forge($view);
+	}
+
+	public function action_book($id)
+	{
+		$newseat = Model_Seat::find($id);
+
+		if(!$newseat || in_array($newseat->seat_type, array('staff','volunteer'))) {
+			\Response::redirect("/map/");
+		}
+
+		// Kill off any seats the user is already part of.
+		$lan = Model_Lan::nextLAN();
+
+		foreach($lan->rooms as $room) {
+			foreach($room->blocks as $block) {
+				foreach($block->seats as $seat) {
+					if($seat->user_id == $this->currentUser->id) {
+						$seat->user_id = 0;
+					}
+				}
+			}
+		}
+
+		$newseat->user_id = $this->currentUser->id;
+
+		$lan->save();
+
+		\Response::redirect("/map/");
 	}
 }

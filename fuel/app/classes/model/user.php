@@ -39,4 +39,27 @@ class Model_User extends \Orm\Model
 	        'cascade_delete' => false,
 	    )
 	);
+
+	public function hasSeat() {
+		return Model_Seat::query()->where(array('lan_id' => Model_Lan::nextLAN()->id), array('user_id' => $this->id))->count() > 0;
+	}
+
+	public static function getCurrentUser() {
+		$current = null;
+		// Assign current_user to the instance so controllers can use it
+		if (Config::get('auth.driver', 'Simpleauth') == 'Ormauth')
+		{
+			$current = Auth::check() ? Model\Auth_User::find_by_username(Auth::get_screen_name()) : null;
+		}
+		else
+		{
+			$current = Auth::check() ? Model_User::find_by_username(Auth::get_screen_name()) : null;
+		}
+
+		if(Config::load('custom')['debug'] && $current == null) {
+			$current = Model_User::find('first');
+		}
+
+		return $current;
+	}
 }

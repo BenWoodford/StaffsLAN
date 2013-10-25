@@ -178,6 +178,26 @@ h4 {
   position: absolute;
   padding: 2px;
 }
+.seat_container .popover {
+  min-width: 200px;
+  width: auto;
+}
+.seat_container .popover .popover-content {
+  padding: 10px;
+  width: auto;
+}
+.seat_container .popover .popover-content img {
+  max-width: 64px;
+  float: left;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+}
 .seat_container .seat {
   border-radius: 3px;
   border: 2px solid #434343;
@@ -187,6 +207,7 @@ h4 {
   color: #494949;
   text-align: center;
   background-color: #d5d5d5;
+  position: relative;
   /*&[data-type="volunteer"] {
 			background-color: #ffca92;
 			border-color: #ff8400;
@@ -195,6 +216,17 @@ h4 {
 }
 .seat_container .seat i {
   display: none;
+  z-index: 99;
+}
+.seat_container .seat > img {
+  display: block;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  min-width: 100%;
+  max-width: 100%;
+  z-index: 95;
+  opacity: 0.8;
 }
 .seat_container .seat:hover i {
   opacity: 0.8;

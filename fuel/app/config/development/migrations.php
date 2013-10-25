@@ -36,6 +36,9 @@ return array(
 				27 => '028_create_tickets',
 				28 => '029_alter_servers',
 				29 => '030_alter_schedule_items',
+				30 => '031_create_questiongroups',
+				31 => '032_delete_survey_id_from_questions',
+				32 => '034_add_order_to_questions',
 			),
 		),
 		'module' => 

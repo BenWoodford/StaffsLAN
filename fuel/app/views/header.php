@@ -53,3 +53,6 @@
 	        			</ul>
 	        		</div>
 	        		<div id="content" class="col-sm-11 col-md-10 ">
+                        <div id="messages">
+                            <?php foreach($messages as $message) { echo $message; } ?>
+                        </div>

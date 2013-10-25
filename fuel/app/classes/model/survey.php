@@ -31,4 +31,32 @@ class Model_Survey extends \Orm\Model
 		return $val;
 	}
 
+	protected static $_has_many = array(
+		'questiongroups' => array(
+			'key_from' => 'id',
+			'model_to' => 'Model_Questiongroup',
+			'key_to' => 'survey_id',
+			'cascade_save' => true,
+			'cascade_delete' => true
+		),
+	);
+
+	public function userHasCompleted() {
+		$qids = array();
+		$question_count = 0;
+		foreach($this->questiongroups as $group) {
+			foreach($group->questions as $question) {
+				$qids[] = $question->id;
+				$question_count++;
+			}
+		}
+
+		$count = Model_Answer::query()->where(array(array('user_id','=', Model_User::getCurrentUser()), array('question_id', 'IN', $qids)))->count();
+
+		if($count == $question_count)
+			return true;
+		else
+			return false;
+	}
+
 }

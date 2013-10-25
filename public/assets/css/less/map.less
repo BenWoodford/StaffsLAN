@@ -34,6 +34,23 @@
 	position: absolute;
 	padding: 2px;
 
+	.popover {
+		min-width: 200px;
+		width: auto;
+		.popover-content {
+			padding: 10px;
+			width: auto;
+
+			img {
+				max-width: 64px;
+				float: left;
+				margin-right: 10px;
+				margin-bottom: 10px;
+				.border-radius(5px);
+			}
+		}
+	}
+
 	.seat {
 		border-radius: 3px;
 		border: 2px solid #434343;
@@ -43,8 +60,19 @@
 		color: #494949;
 		text-align: center;
 		background-color: #d5d5d5;
+		position: relative;
 
-		i { display: none; }
+		i { display: none; z-index: 99;}
+		> img {
+			display: block;
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			min-width: 100%;
+			max-width: 100%;
+			z-index:95;
+			opacity: 0.8;
+		}
 
 		&:hover i {
 			opacity: 0.8;

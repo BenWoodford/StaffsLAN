@@ -52,7 +52,22 @@
 				echo '<div class="block" style="top: ' . $block->block_locy . '%; left: ' . $block->block_locx  . '%; width: ' . $block->block_width . '%;" data-ratio="' . $block->block_height . '" id="block' . $block->id . '">';
 
 				foreach($block->seats as $seat) {
-					echo '<div class="seat_container" style="top: ' . $seat->seat_locy . '%; left: ' . $seat->seat_locx . '%; width: ' . $seat->seat_width . '%;" data-ratio="' . $seat->seat_height . '" id="seat' . $seat->id . '"><div class="seat' . ($seat->isOccupied() ? " occupied" : "") . '" data-type="' . $seat->seat_type . '">' . $block->block_shorthand . $seat->seat_num . '<i class="icon-arrow-' . $seat->seat_direction . '"></i></div>';
+					echo '<div class="seat_container" style="top: '
+							. $seat->seat_locy . '%; left: '
+							. $seat->seat_locx . '%; width: '
+							. $seat->seat_width . '%;" data-ratio="'
+							. $seat->seat_height . '" id="seat'
+							. $seat->id . '">'
+								. '<div data-toggle="tooltip" data-name="' . ($seat->user ? htmlentities($seat->user->username) : "") . '" data-avatar="' . ($seat->user && !empty($seat->user->avatar_url) ? $seat->user->avatar_url : "") . '" data-seat="' . $block->block_shorthand
+									. $seat->seat_num . '" '
+									. 'data-seat-id="' . $seat->id . '" class="seat'
+									. ($seat->isOccupied() ? " occupied" : "")
+									. '" data-type="' . $seat->seat_type . '">'
+										. '<i class="icon-arrow-' . $seat->seat_direction . '"></i>';
+					if($seat->user && !empty($seat->user->avatar_url)) {
+						echo '<img src="' . $seat->user->avatar_url . '" />';
+					}
+						echo '</div>';
 					echo '</div>';
 				}
 
@@ -62,5 +77,6 @@
 		}
 		?>
 		</div>
+		<div class="cleafix"></div>
 	</div>
 </div>

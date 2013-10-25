@@ -25,3 +25,6 @@
 [submodule "fuel/app/vendor/facebook"]
 	path = fuel/app/vendor/facebook
 	url = https://github.com/facebook/facebook-php-sdk
+[submodule "fuel/packages/messages"]
+	path = fuel/packages/messages
+	url = https://github.com/BenWoodford/FuelPHP-Messages.git

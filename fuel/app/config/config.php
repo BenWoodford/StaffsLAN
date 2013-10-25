@@ -179,6 +179,7 @@ return array(
 			'Fuel\\Core\\View',
 			'Fuel\\Core\\ViewModel',
 			'Fuel\\Core\\Validation',
+			'Messages',
 			'Closure',
 			'Facebook',
 		),
@@ -275,6 +276,7 @@ return array(
 		'packages'  => array(
 			'auth',
 			'orm',
+			'messages',
 		),
 
 		/**
