@@ -51,9 +51,9 @@ class Model_Survey extends \Orm\Model
 			}
 		}
 
-		$count = Model_Answer::query()->where(array(array('user_id','=', Model_User::getCurrentUser()), array('question_id', 'IN', $qids)))->count();
+		$count = Model_Answer::query()->where(array('user_id','=', 1), array('question_id', 'IN', $qids))->count();
 
-		if($count == $question_count)
+		if($count > 0)
 			return true;
 		else
 			return false;

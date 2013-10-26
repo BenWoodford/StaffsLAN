@@ -32,11 +32,11 @@
 				case 'tel':
 				case 'email':
 					echo '<label for="question' . $question->id . '">' . $question->survey_text . '</label>';
-					echo Form::input($question->id, null, array('class' => 'form-control', 'id' => 'question' . $question->id, 'type' => $question->survey_type));
+					echo Form::input('question' . $question->id, Arr::get($prefill, 'question' . $question->id), array('class' => 'form-control', 'id' => 'question' . $question->id, 'type' => $question->survey_type));
 					break;
 				case 'checkbox':
 					echo '<label>';
-					echo Form::checkbox($question->id, null, null, array());
+					echo Form::checkbox('question' . $question->id, 1, (Arr::get($prefill, 'question' . $question->id) != null), array());
 					echo ' ' . $question->survey_text . '</label>';
 					break;
 				case 'info':
@@ -44,7 +44,7 @@
 					break;
 				case 'textarea':
 					echo '<label>' . $question->survey_text . '</label>';
-					echo Form::textarea($question->id, null, array('class' => 'form-control'));
+					echo Form::textarea('question' . $question->id, Arr::get($prefill, 'question' . $question->id), array('class' => 'form-control'));
 					break;
 			}
 		?>

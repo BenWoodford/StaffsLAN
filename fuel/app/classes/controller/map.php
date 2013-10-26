@@ -18,7 +18,7 @@ class Controller_Map extends Controller_Base
 		$data['rooms'] = $rooms = Model_Lan::nextLAN()->rooms;
 
 		//if(!$this->currentUser->hasSeat())
-			Messages::error("You haven't booked your seat below yet, make sure you do or you'll have to go with what's left when you arrive!");
+			Messages::danger("You haven't booked your seat below yet, make sure you do or you'll have to go with what's left when you arrive!");
 
 		$view = View::forge('map', $data);
 		return Response::forge($view);

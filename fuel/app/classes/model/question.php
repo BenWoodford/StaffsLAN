@@ -6,6 +6,7 @@ class Model_Question extends \Orm\Model
 		'questiongroup_id',
 		'survey_text',
 		'survey_type',
+		'validation_rule',
 		'data',
 		'order',
 		'created_at',
@@ -30,6 +31,7 @@ class Model_Question extends \Orm\Model
 		$val->add_field('survey_text', 'Survey Text', 'required');
 		$val->add_field('survey_type', 'Survey Type', 'required|max_length[32]');
 		$val->add_field('data', 'Data', 'required');
+		$val->add_field('validation_rule', 'Validation Rule', 'required');
 		$val->add_field('order', 'Order', 'required|valid_string[numeric]');
 
 		return $val;

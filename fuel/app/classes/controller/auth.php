@@ -90,7 +90,7 @@ class Controller_Auth extends Controller_Base {
             }
 
             // redirect to the url set
-            //\Response::redirect($url);
+            \Response::redirect($url);
         }
 
         // deal with Opauth exceptions

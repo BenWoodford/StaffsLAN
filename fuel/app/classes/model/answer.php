@@ -7,7 +7,6 @@ class Model_Answer extends \Orm\Model
 		'question_id',
 		'user_id',
 		'value',
-		'date',
 		'created_at',
 		'updated_at',
 	);
@@ -23,5 +22,22 @@ class Model_Answer extends \Orm\Model
 		),
 	);
 	protected static $_table_name = 'answers';
+
+	protected static $_has_one = array(
+		'user' => array(
+			'key_from' => 'user_id',
+			'model_to' => 'Model_User',
+			'key_to' => 'id',
+			'cascade_save' => true,
+			'cascade_delete' => false
+		),
+		'question' => array(
+			'key_from' => 'question_id',
+			'model_to' => 'Model_Question',
+			'key_to' => 'id',
+			'cascade_save' => true,
+			'cascade_delete' => false
+		)
+	);
 
 }

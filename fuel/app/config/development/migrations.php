@@ -39,6 +39,8 @@ return array(
 				30 => '031_create_questiongroups',
 				31 => '032_delete_survey_id_from_questions',
 				32 => '034_add_order_to_questions',
+				33 => '035_add_validation_rule_to_questions',
+				34 => '036_delete_date_from_answers',
 			),
 		),
 		'module' => 

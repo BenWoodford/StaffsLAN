@@ -41,7 +41,7 @@ class Model_User extends \Orm\Model
 	);
 
 	public function hasSeat() {
-		return Model_Seat::query()->where(array('lan_id' => Model_Lan::nextLAN()->id), array('user_id' => $this->id))->count() > 0;
+		return Model_Seat::query()->where(array(array('lan_id' => Model_Lan::nextLAN()->id), array('user_id' => $this->id)))->count() > 0;
 	}
 
 	public static function getCurrentUser() {
@@ -56,9 +56,10 @@ class Model_User extends \Orm\Model
 			$current = Auth::check() ? Model_User::find_by_username(Auth::get_screen_name()) : null;
 		}
 
-		if(Config::load('custom')['debug'] && $current == null) {
+		/*if(Config::load('custom')['debug'] && $current == null) {
 			$current = Model_User::find('first');
-		}
+			echo "five";
+		}*/
 
 		return $current;
 	}
