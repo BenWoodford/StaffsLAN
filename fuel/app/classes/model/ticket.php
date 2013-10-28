@@ -32,6 +32,24 @@ class Model_Ticket extends \Orm\Model
 		return Model_Ticket::query()->where(array(array('lan_id' => $lan), array('student_number' => $student)))->count() > 0;
 	}
 
+	public static function getTicket($student) {
+		return Model_Ticket::query()->where(array(array('lan_id' => Model_Lan::nextLAN()->id), array('student_number' => $student)))->get_one();
+	}
+
+	public static function setVolunteer($number) {
+		$find = Model_Ticket::query()->where(array(array('lan_id' => Model_Lan::nextLAN()->id), array('student_number' => $number)));
+
+		if($find->count() > 0) {
+			$ticket = $find->get_one();
+			$ticket->is_volunteer = 1;
+			$ticket->save();
+
+			echo "Added volunteer.\n";
+		} else {
+			echo "That student doesn't have a ticket!\n";
+		}
+	}
+
 	public static function addTicket($number, $volunteer = false) {
 		$check = Model_Ticket::query()->where(array(array('lan_id' => Model_Lan::nextLAN()->id), array('student_number' => $number)))->count() > 0;
 
