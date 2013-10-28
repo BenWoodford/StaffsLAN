@@ -8,6 +8,7 @@
 class Controller_Map extends Controller_Base
 {
 	public function before() {
+		Asset::js('jquery.pan.js', array(), 'page_assets');
 		Asset::js('map.js', array(), 'page_assets');
 		parent::before();
 	}
@@ -17,7 +18,7 @@ class Controller_Map extends Controller_Base
 		$data = array();
 		$data['rooms'] = $rooms = Model_Lan::nextLAN()->rooms;
 
-		//if(!$this->currentUser->hasSeat())
+		if(!$this->currentUser->hasSeat())
 			Messages::danger("You haven't booked your seat below yet, make sure you do or you'll have to go with what's left when you arrive!");
 
 		$view = View::forge('map', $data);
@@ -28,7 +29,7 @@ class Controller_Map extends Controller_Base
 	{
 		$newseat = Model_Seat::find($id);
 
-		if(!$newseat || in_array($newseat->seat_type, array('staff','volunteer'))) {
+		if(!$newseat || in_array($newseat->seat_type, array('staff','volunteer')) || $newseat->user_id != 0) {
 			\Response::redirect("/map/");
 		}
 

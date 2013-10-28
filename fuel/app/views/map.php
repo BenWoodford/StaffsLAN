@@ -1,7 +1,7 @@
 <div class="box">
 	<div class="box-header">
 		<h2>
-			<i class="icon-info"></i>
+			<i class="fa fa-info"></i>
 			Legend
 		</h2>
 	</div>
@@ -38,45 +38,48 @@
 <div class="box">
 	<div class="box-header">
 		<h2>
-			<i class="icon-map-marker"></i>
+			<i class="fa fa-map-marker"></i>
 			Live Player Map
 		</h2>
 	</div>
-	<div class="box-content">
-		<div id="map">
-		<?php
-		foreach($rooms as $room) {
-			echo '<div class="room" style="top: ' . $room->room_locy . '%; left: ' . $room->room_locx . '%; width: ' . $room->room_width . '%;" data-ratio="' . $room->room_height . '" id="room' . $room->id . '">';
+	<div class="box-content" id="map-box">
+		<p>You can click and drag the map to look around. Click on an <strong>Available</strong> seat to choose or change your seat!</p>
+		<div id="map-container">
+			<div id="map">
+			<?php
+			foreach($rooms as $room) {
+				echo '<div class="room" style="top: ' . $room->room_locy . 'px; left: ' . $room->room_locx . 'px; width: ' . $room->room_width . 'px; height: ' . $room->room_height . 'px;" id="room' . $room->id . '">';
 
-			foreach($room->blocks as $block) {
-				echo '<div class="block" style="top: ' . $block->block_locy . '%; left: ' . $block->block_locx  . '%; width: ' . $block->block_width . '%;" data-ratio="' . $block->block_height . '" id="block' . $block->id . '">';
+				foreach($room->blocks as $block) {
+					echo '<div class="block" style="top: ' . $block->block_locy . 'px; left: ' . $block->block_locx  . 'px; width: ' . $block->block_width . 'px; height: ' . $block->block_height . 'px;" id="block' . $block->id . '">';
 
-				foreach($block->seats as $seat) {
-					echo '<div class="seat_container" style="top: '
-							. $seat->seat_locy . '%; left: '
-							. $seat->seat_locx . '%; width: '
-							. $seat->seat_width . '%;" data-ratio="'
-							. $seat->seat_height . '" id="seat'
-							. $seat->id . '">'
-								. '<div data-toggle="tooltip" data-name="' . ($seat->user ? htmlentities($seat->user->username) : "") . '" data-avatar="' . ($seat->user && !empty($seat->user->avatar_url) ? $seat->user->avatar_url : "") . '" data-seat="' . $block->block_shorthand
-									. $seat->seat_num . '" '
-									. 'data-seat-id="' . $seat->id . '" class="seat'
-									. ($seat->isOccupied() ? " occupied" : "")
-									. '" data-type="' . $seat->seat_type . '">'
-										. '<i class="icon-arrow-' . $seat->seat_direction . '"></i>';
-					if($seat->user && !empty($seat->user->avatar_url)) {
-						echo '<img src="' . $seat->user->avatar_url . '" />';
-					}
+					foreach($block->seats as $seat) {
+						echo '<div class="seat_container" style="top: '
+								. $seat->seat_locy . 'px; left: '
+								. $seat->seat_locx . 'px; width: '
+								. $seat->seat_width . 'px; height: '
+								. $seat->seat_height . 'px;" id="seat'
+								. $seat->id . '">'
+									. '<div data-toggle="tooltip" data-name="' . ($seat->user ? htmlentities($seat->user->username) : "") . '" data-avatar="' . ($seat->user && !empty($seat->user->avatar_url) ? $seat->user->avatar_url : "") . '" data-seat="' . $block->block_shorthand
+										. $seat->seat_num . '" '
+										. 'data-seat-id="' . $seat->id . '" class="seat'
+										. ($seat->isOccupied() ? " occupied" : "")
+										. '" data-type="' . $seat->seat_type . '">'
+											. '<i class="fa fa-arrow-' . $seat->seat_direction . '"></i>';
+						if($seat->user && !empty($seat->user->avatar_url)) {
+							echo '<img src="' . $seat->user->avatar_url . '" />';
+						}
+							echo '</div>';
 						echo '</div>';
+					}
+
 					echo '</div>';
 				}
-
 				echo '</div>';
 			}
-			echo '</div>';
-		}
-		?>
+			?>
+			</div>
+			<div class="cleafix"></div>
 		</div>
-		<div class="cleafix"></div>
 	</div>
 </div>

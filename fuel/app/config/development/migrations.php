@@ -41,6 +41,8 @@ return array(
 				32 => '034_add_order_to_questions',
 				33 => '035_add_validation_rule_to_questions',
 				34 => '036_delete_date_from_answers',
+				35 => '037_alter_seats',
+				36 => '038_add_is_volunteer_to_tickets',
 			),
 		),
 		'module' => 

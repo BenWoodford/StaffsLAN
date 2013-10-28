@@ -12,26 +12,29 @@ class Controller_Home extends Controller_Base
 {
 
 	/**
-	 * The basic welcome message
+	 * Awesome dashboard stuff
 	 *
 	 * @access  public
 	 * @return  Response
 	 */
 	public function action_index()
 	{
-		return Response::forge(View::forge('index'));
-	}
+		$data['lan'] = Model_Lan::nextLAN();
 
-	/**
-	 * A typical "Hello, Bob!" type example.  This uses a ViewModel to
-	 * show how to use them.
-	 *
-	 * @access  public
-	 * @return  Response
-	 */
-	public function action_hello()
-	{
-		return Response::forge(ViewModel::forge('welcome/hello'));
+		// Todo items for user
+		$todos = array();
+
+		if(!Model_Survey::find(1)->userHasCompleted()) {
+			$todos[] = array('icon' => 'list-alt', 'link' => '/survey/view/1', 'text' => 'Complete Online Check-in');
+		}
+
+		if(!$this->currentUser->hasSeat()) {
+			$todos[] = array('icon' => 'ticket', 'link' => '/map/', 'text' => 'Pick your seat');
+		}
+
+		$data['todos'] = $todos;
+
+		return Response::forge(View::forge('index', $data));
 	}
 
 	/**
@@ -42,6 +45,6 @@ class Controller_Home extends Controller_Base
 	 */
 	public function action_404()
 	{
-		return Response::forge(ViewModel::forge('welcome/404'), 404);
+		return Response::forge(ViewModel::forge('error/404'), 404);
 	}
 }

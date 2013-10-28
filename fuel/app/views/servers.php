@@ -3,7 +3,7 @@
 	<div class="server box col-md-4 col-lg-3 col-sm-6 col-xs-12" id="server<?=$server->id;?>">
 		<div class="box-header">
 			<h2>
-				<i class="icon-info"></i>
+				<i class="fa fa-info"></i>
 				<a href="<?=$server->printURI();?>"><?=$server->server_title;?></a>
 			</h2>
 		</div>

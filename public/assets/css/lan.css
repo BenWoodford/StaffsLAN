@@ -69,6 +69,9 @@ h4 {
   list-style: none;
   display: block;
 }
+#sidebar ul li .tooltip.right {
+  width: 100px;
+}
 @media (min-width: 992px) {
   #sidebar ul li .hidden-sm {
     display: inline-block !important;
@@ -118,6 +121,7 @@ h4 {
   color: #fff;
   height: 36px;
   overflow: hidden;
+  z-index: 10;
 }
 .box .box-header a {
   color: #fff;
@@ -149,8 +153,18 @@ h4 {
   background-clip: padding-box;
 }
 /* START: map.less */
-#map {
+#map-container {
+  overflow-y: hidden;
+  overflow-x: hidden;
+  height: 650px;
+  padding-top: 50px;
+  padding-left: 50px;
+  padding-right: 100px;
+  padding-bottom: 50px;
+}
+#map-container #map {
   position: relative;
+  width: 1500px;
 }
 #legend {
   margin-bottom: 30px;
@@ -181,6 +195,7 @@ h4 {
 .seat_container .popover {
   min-width: 200px;
   width: auto;
+  z-index: 99;
 }
 .seat_container .popover .popover-content {
   padding: 10px;
@@ -203,7 +218,6 @@ h4 {
   border: 2px solid #434343;
   width: 100%;
   height: 100%;
-  padding-top: 0.35em;
   color: #494949;
   text-align: center;
   background-color: #d5d5d5;
@@ -217,6 +231,7 @@ h4 {
 .seat_container .seat i {
   display: none;
   z-index: 99;
+  font-size: 24px;
 }
 .seat_container .seat > img {
   display: block;
@@ -228,11 +243,15 @@ h4 {
   z-index: 95;
   opacity: 0.8;
 }
+.seat_container .seat:hover > img {
+  opacity: 0.3;
+}
 .seat_container .seat:hover i {
   opacity: 0.8;
   position: absolute;
   display: block;
-  top: 30%;
+  text-align: center;
+  top: 20%;
   left: 0px;
   width: 100%;
   height: 100%;
@@ -267,10 +286,10 @@ h4 {
 .room .block {
   position: absolute;
   border: 2px solid #e2e2e2;
-  padding: 5px;
+  padding: 0px;
+  box-sizing: content-box;
   border-radius: 3px;
   text-align: center;
-  font-size: 1.5vw;
 }
 /* END: map.less *//* START: servers.less */
 #servers .server .box-content {

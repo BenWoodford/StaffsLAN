@@ -1,7 +1,7 @@
 <div class="box">
 	<div class="box-header">
 		<h2>
-			<i class="icon-th-list"></i>
+			<i class="fa fa-th-list"></i>
 			<?=$survey->survey_title;?>
 		</h2>
 	</div>
@@ -18,7 +18,7 @@
 	<div class="box" id="questiongroup-<?=$group->id;?>">
 		<div class="box-header">
 			<h2>
-				<i class="icon-th-list"></i>
+				<i class="fa fa-th-list"></i>
 				<?=$group->group_name;?>
 			</h2>
 		</div>
@@ -57,7 +57,7 @@
 <div class="box">
 	<div class="box-header">
 		<h2>
-			<i class="icon-th-list"></i>
+			<i class="fa fa-th-list"></i>
 			Controls
 		</h2>
 	</div>

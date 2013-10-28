@@ -78,11 +78,18 @@ class Controller_Survey extends Controller_Base
 				$ans->value = ($val == null ? false : $val);
 				$ans->save();
 			}
+
 			\Response::Redirect('/survey/');
 		}
 
 		foreach($validation->error_message() as $msg) {
 			Messages::danger($msg);
+		}
+
+		if(count($validation->error_message()) == 0) {
+			if($data['survey']->userHasCompleted()) {
+				Messages::success("You're already completed this survey, thanks! You can still edit your answers below though.");
+			}
 		}
 
 		foreach($validation->input() as $field => $input) {

@@ -2,7 +2,7 @@
 	<div id="multiday" class="col-md-12 box">
 		<div class="box-header">
 			<h2>
-				<i class="icon-calendar"></i>
+				<i class="fa fa-calendar"></i>
 				Multi-Day Events
 			</h2>
 		</div>
@@ -15,7 +15,7 @@
 	<div class="box day col-md-4 col-lg-4 col-sm-6 col-xs-12" data-date="<?=$date;?>">
 		<div class="box-header">
 			<h2>
-				<i class="icon-calendar"></i>
+				<i class="fa fa-calendar"></i>
 				<?=$date;?>
 			</h2>
 		</div>

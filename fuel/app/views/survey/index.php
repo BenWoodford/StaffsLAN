@@ -1,7 +1,7 @@
 <div class="box">
 	<div class="box-header">
 		<h2>
-			<i class="icon-th-list"></i>
+			<i class="fa fa-th-list"></i>
 			Available Surveys
 		</h2>
 	</div>

@@ -10,6 +10,14 @@ class Controller_Base extends Controller_Template {
 
 		// Set a global variable so views can use it
 		$this->currentUser = Model_User::getCurrentUser();
+
+		if(!$this->currentUser && Request::active()->controller != 'Controller_Auth')
+			Response::redirect('/auth/go/oauth');
+
+		if(Request::active()->controller != 'Controller_Auth' && Request::active()->controller != 'Controller_Noticket' && !$this->currentUser->hasTicket()) {
+			Response::redirect('/noticket/');
+		}
+
 		View::set_global('current_user', $this->currentUser);
 
 		View::set_global('custom_config', Config::load('custom'));

@@ -61,4 +61,29 @@ class Model_Block extends \Orm\Model
 	    )
 	);
 
+	public function cloneBlock() {
+		$new = new Model_Block(array(
+			'block_name' => $this->block_name,
+			'room_id' => $this->room_id,
+			'block_shorthand' => $this->block_shorthand,
+			'block_locx' => $this->block_locx,
+			'block_locy' => $this->block_locy,
+			'block_height' => $this->block_height,
+			'block_width' => $this->block_width,
+			'block_actual_width' => $this->block_actual_width,
+		));
+
+		$new->save();
+
+		foreach($this->seats as $seat) {
+			$newseat = $seat->cloneSeat();
+			$newseat->block_id = $new->id;
+			$new->seats[] = $newseat;
+		}
+
+		$new->save();
+
+		return $new;
+	}
+
 }

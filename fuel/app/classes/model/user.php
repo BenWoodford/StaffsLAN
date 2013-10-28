@@ -40,8 +40,19 @@ class Model_User extends \Orm\Model
 	    )
 	);
 
+	public function hasTicket() {
+		return Model_Ticket::userHasTicket(Model_Lan::nextLAN()->id, $this->student_number);
+	}
+
 	public function hasSeat() {
-		return Model_Seat::query()->where(array(array('lan_id' => Model_Lan::nextLAN()->id), array('user_id' => $this->id)))->count() > 0;
+		return Model_Seat::query()
+		->related("block")
+		->related("block.room")
+		->related("block.room.lan")
+		->where(array("block.room.lan.id" => Model_Lan::nextLAN()->id))
+		->count() > 0;
+
+		//return Model_Seat::query()->where(array(array('lan_id' => Model_Lan::nextLAN()->id), array('user_id' => $this->id)))->count() > 0;
 	}
 
 	public static function getCurrentUser() {
