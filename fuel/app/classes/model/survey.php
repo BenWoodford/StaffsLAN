@@ -43,7 +43,7 @@ class Model_Survey extends \Orm\Model
 
 	public function userHasCompleted($uid = null) {
 		if($uid == null) {
-			$uid = Model_User::getCurrentUser();
+			$uid = Model_User::getCurrentUser()->id;
 		}
 
 		$qids = array();
