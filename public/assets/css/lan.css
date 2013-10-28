@@ -303,9 +303,17 @@ h4 {
   box-sizing: content-box;
   border-radius: 3px;
   text-align: center;
+  /* Customs */
+
 }
 .room .block .block-text {
   color: #494949;
+}
+.room .block#block17 .block-text {
+  -webkit-transform: rotate(90);
+  -moz-transform: rotate(90);
+  -ms-transform: rotate(90);
+  -o-transform: rotate(90);
 }
 /* END: map.less *//* START: servers.less */
 #servers .server .box-content {
