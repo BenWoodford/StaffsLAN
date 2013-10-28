@@ -315,6 +315,7 @@ h4 {
 }
 .room .block .block-text {
   color: #494949;
+  display: block;
 }
 .room .block#block17 .block-text {
   -webkit-transform: rotate(90deg);
