@@ -317,10 +317,10 @@ h4 {
   color: #494949;
 }
 .room .block#block17 .block-text {
-  -webkit-transform: rotate(90);
-  -moz-transform: rotate(90);
-  -ms-transform: rotate(90);
-  -o-transform: rotate(90);
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
 }
 /* END: map.less *//* START: servers.less */
 #servers .server .box-content {
