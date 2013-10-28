@@ -39,7 +39,7 @@
 	<div class="box-header">
 		<h2>
 			<i class="fa fa-map-marker"></i>
-			Live Player Map
+			Live Player Map (<?=$remaining_seats;?> of <?=$total_seats;?> remaining)
 		</h2>
 	</div>
 	<div class="box-content" id="map-box">
