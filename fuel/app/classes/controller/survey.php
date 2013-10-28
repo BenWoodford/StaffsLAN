@@ -50,12 +50,10 @@ class Controller_Survey extends Controller_Base
 				$qobj['question' . $q->id] = $q;
 
 				// Prefill inputs
-				if($data['survey']->userHasCompleted()) {
-					$query = Model_Answer::query()->where(array(array('user_id' => $this->currentUser->id), array('question_id' => $q->id)));
+				$query = Model_Answer::query()->where(array(array('user_id' => $this->currentUser->id), array('question_id' => $q->id)));
 
-					if($query->count() > 0) {
-						$prefill['question' . $q->id] = Input::post('question' . $q->id, $query->get_one()->value);
-					}
+				if($query->count() > 0) {
+					$prefill['question' . $q->id] = Input::post('question' . $q->id, $query->get_one()->value);
 				}
 
 				if(!empty($q->validation_rule))
