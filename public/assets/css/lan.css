@@ -304,6 +304,9 @@ h4 {
   border-radius: 3px;
   text-align: center;
 }
+.room .block .block-text {
+  color: #494949;
+}
 /* END: map.less *//* START: servers.less */
 #servers .server .box-content {
   padding: 0px;
