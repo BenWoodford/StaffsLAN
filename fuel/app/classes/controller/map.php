@@ -18,8 +18,21 @@ class Controller_Map extends Controller_Base
 		$data = array();
 		$data['rooms'] = $rooms = Model_Lan::nextLAN()->rooms;
 
-		$data['total_seats'] = Model_Seat::query()->where('lan_id', Model_Lan::nextLAN()->id)->count();
-		$data['remaining_seats'] = Model_Seat::query()->where(array(array('lan_id' => Model_Lan::nextLAN()->id),array('user_id' => 0)))->count();
+		$lan = Model_Lan::nextLAN();
+
+		$data['total_seats'] = 0;
+		$data['remaining_seats'] = 0;
+
+		foreach($lan->rooms as $room) {
+			foreach($room->blocks as $block) {
+				foreach($block->seats as $seat) {
+					$data['total_seats']++;
+
+					if($seat->user_id == 0)
+						$data['remaining_seats']++;
+				}
+			}
+		}
 
 		if(!$this->currentUser->hasSeat())
 			Messages::danger("You haven't booked your seat below yet, make sure you do or you'll have to go with what's left when you arrive!");
