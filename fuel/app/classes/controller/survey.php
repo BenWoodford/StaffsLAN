@@ -40,6 +40,8 @@ class Controller_Survey extends Controller_Base
 
 		$validation->set_message("required_with", "Based on the information you have entered, you must fill in the <em>:label</em> field");
 
+		$validation->set_message("required", "The field <em>:label</em> must contain a value.");
+
 		$qids = array();
 		$qobj = array();
 		$prefill = array();
