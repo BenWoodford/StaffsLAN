@@ -81,6 +81,7 @@
 					<li>Do not leave open top liquid containers near electrical equipment. You may use a screw-cap or sports bottle for drinks.</li>
 					<li>Do not eat messy food at your seat, we are required to not have any food near university equipment if we wish to use the venue.</li>
 					<li>Do not act irresponsibly or anti-socially.</li>
+					<li>Do not stream your screen to Twitch/uStream/etc. We have streaming systems locally in place and may ask some players to stream their screen over the network to us, but this will be on a case by case basis.</li>
 				</ul>
 			</li>
 
@@ -137,7 +138,7 @@
 			<li>Pillow, sleeping bag/duvet (or an air bed + pump if you're feeling luxurious)
 				<ul><li>If you bring an air bed, please pump it up before sleeping hours as it will disturb other attendees</li></ul>
 			</li>
-			<li>Toothbrush, toothpaste and deodorant</li>
+			<li>Toothbrush, toothpaste and <b>deodorant</b></li>
 			<li>Flannel, face wipes, etc for "freshening up" in the morning
 				<ul><li>We do not provide on-site showers, though if you have a gym membership you can go over there</li></ul>
 			</li>
