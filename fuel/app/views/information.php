@@ -46,6 +46,11 @@
 					<li>You are expected to bring your own equipment (PC, mouse, keyboard, power cables, etc).</li>
 					<li>We will provide you with a labelled ethernet cable for the event. Please do not bring your own as you will not be permitted to use it. All of our cables are labelled with seat IDs and can provide a 1000Mbps throughput.</li>
 					<li>Please ensure your equipment is safe. If it is a danger to other attendees or their equipment you may be asked to remove it. <strong>A brief, unintrusive inspection of your equipment will be required before you may plug it in, in order to comply with fire safety requirements.</strong></li>
+					<li>Please ensure you have Anti-Virus installed (we recommend <a href="">Microsoft Security Essentials</a>!") and up to date, as well as all Operating System updates and patches installed.
+						<ul>
+							<li>Windows 8/8.1 users will have MSE installed by default, so just make sure it's enabled!</li>
+						</ul>
+					</li>
 				</ul>
 			</li>
 		</ul>
