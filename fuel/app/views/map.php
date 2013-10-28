@@ -54,7 +54,7 @@
 					echo '<div class="block" style="top: ' . $block->block_locy . 'px; left: ' . $block->block_locx  . 'px; width: ' . $block->block_width . 'px; height: ' . $block->block_height . 'px;" id="block' . $block->id . '">';
 
 					if(count($block->seats) == 0) {
-						echo '<span class="blocktext">' . $block->block_name . '</span>';
+						echo '<span class="block-text">' . $block->block_name . '</span>';
 					}
 
 					foreach($block->seats as $seat) {
