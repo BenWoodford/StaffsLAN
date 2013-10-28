@@ -13,9 +13,11 @@
                 <link href='http://fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'>
                 <link href='http://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
                 <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" rel="stylesheet">
-                
+
                 <script type="text/javascript">
+                <?php if($current_user->hasTicket()) { ?>
                     var ticket_type = '<?php echo ($current_user->getTicket()->is_volunteer == 1 ? "volunteer" : "player"); ?>';
+                <?php } ?>
                 </script>
 
                 <script src="/assets/js/script.js"></script>

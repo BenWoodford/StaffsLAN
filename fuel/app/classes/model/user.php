@@ -53,7 +53,7 @@ class Model_User extends \Orm\Model
 		->related("block")
 		->related("block.room")
 		->related("block.room.lan")
-		->where(array("block.room.lan.id" => Model_Lan::nextLAN()->id))
+		->where(array(array("block.room.lan.id" => Model_Lan::nextLAN()->id), array('user_id' => $this->id)))
 		->count() > 0;
 
 		//return Model_Seat::query()->where(array(array('lan_id' => Model_Lan::nextLAN()->id), array('user_id' => $this->id)))->count() > 0;
