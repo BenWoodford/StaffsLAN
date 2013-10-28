@@ -40,10 +40,10 @@ h4 {
 .navbar .navbar-header {
   padding: 9px 0 10px 0;
 }
-.navbar .navbar-header #refresh {
+.navbar .navbar-header .refresh {
   padding-right: 20px;
 }
-.navbar .navbar-header #refresh a {
+.navbar .navbar-header .refresh a {
   color: #fff;
   padding-left: 5px;
 }
