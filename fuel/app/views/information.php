@@ -73,7 +73,7 @@
 							<li>Use or distribute any illegal substances</li>
 						</ul>
 					</li>
-					<li>Do not turn up or get drunk at the LAN</li>
+					<li>Do not turn up drunk or get drunk at the LAN</li>
 					<li>Do not modify our infrastructure, including but not limited to moving extension leads or switches</li>
 					<li>Do not plug in any unauthorised devices, such as switches, hubs or routers</li>
 					<li>Do not use anyone else's equipment without permission</li>
