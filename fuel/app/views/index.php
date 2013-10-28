@@ -47,7 +47,7 @@
 		<div class="box">
 			<div class="box-header">
 				<h2>
-					<i class="fa fa-clock"></i>
+					<i class="fa fa-clock-o"></i>
 					LAN begins in...
 				</h2>
 			</div>
