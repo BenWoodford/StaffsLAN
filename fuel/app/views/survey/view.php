@@ -36,7 +36,8 @@
 					break;
 				case 'checkbox':
 					echo '<label>';
-					echo Form::checkbox('question' . $question->id, 1, (Arr::get($prefill, 'question' . $question->id) != null), array());
+					echo Form::hidden('question' . $question->id, 0);
+					echo Form::checkbox('question' . $question->id, 1, (Arr::get($prefill, 'question' . $question->id) != null && Arr::get($prefill, 'question' . $question->id) != 0), array());
 					echo ' ' . $question->survey_text . '</label>';
 					break;
 				case 'info':

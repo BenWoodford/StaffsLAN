@@ -29,7 +29,13 @@ class Controller_Map extends Controller_Base
 	{
 		$newseat = Model_Seat::find($id);
 
-		if(!$newseat || in_array($newseat->seat_type, array('staff','volunteer')) || $newseat->user_id != 0) {
+		$volunteer = false;
+
+		if($this->currentUser->getTicket()->is_volunteer == 1) {
+			$volunteer = true;
+		}
+
+		if(!$newseat || in_array($newseat->seat_type, array('staff')) || ($newseat->seat_type == 'volunteer' && !$volunteer) || $newseat->user_id != 0 || ($newseat->seat_type == 'player' && $volunteer)) {
 			\Response::redirect("/map/");
 		}
 

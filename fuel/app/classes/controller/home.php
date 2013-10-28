@@ -10,6 +10,10 @@
  */
 class Controller_Home extends Controller_Base
 {
+	public function before() {
+		Asset::js('//cdnjs.cloudflare.com/ajax/libs/jquery-countdown/1.6.3/jquery.countdown.min.js', array(), 'page_assets');
+		parent::before();
+	}
 
 	/**
 	 * Awesome dashboard stuff

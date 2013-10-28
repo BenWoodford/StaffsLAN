@@ -44,6 +44,10 @@ class Model_User extends \Orm\Model
 		return Model_Ticket::userHasTicket(Model_Lan::nextLAN()->id, $this->student_number);
 	}
 
+	public function getTicket() {
+		return Model_Ticket::query()->where(array(array('student_number' => $this->student_number), array('lan_id' => Model_Lan::nextLAN()->id)))->get_one();
+	}
+
 	public function hasSeat() {
 		return Model_Seat::query()
 		->related("block")

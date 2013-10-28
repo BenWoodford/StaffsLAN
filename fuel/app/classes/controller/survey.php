@@ -43,6 +43,7 @@ class Controller_Survey extends Controller_Base
 		$qids = array();
 		$qobj = array();
 		$prefill = array();
+
 		foreach($data['survey']->questiongroups as $qg) {
 			foreach($qg->questions as $q) {
 				$qids[] = $q->id;
@@ -52,8 +53,9 @@ class Controller_Survey extends Controller_Base
 				if($data['survey']->userHasCompleted()) {
 					$query = Model_Answer::query()->where(array(array('user_id' => $this->currentUser->id), array('question_id' => $q->id)));
 
-					if($query->count() > 0)
-						$prefill['question' . $q->id] = $query->get_one()->value;
+					if($query->count() > 0) {
+						$prefill['question' . $q->id] = Input::post('question' . $q->id, $query->get_one()->value);
+					}
 				}
 
 				if(!empty($q->validation_rule))
@@ -63,11 +65,17 @@ class Controller_Survey extends Controller_Base
 			}
 		}
 
+		foreach(Input::post() as $field => $input) {
+			if(!isset($prefill[$field])) {
+				$prefill[$field] = $input;
+			}
+		}
+
 		if($validation->run()) {
 			foreach($validation->validated() as $key => $val) {
 				$find = Model_Answer::query()->where(array(array('user_id' => $this->currentUser->id), array('question_id' => str_replace("question", "", $key))));
 
-				if($find->count() == 1) {
+				if($find->count() >= 1) {
 					$ans = $find->get_one();
 				} else {
 					$ans = new Model_Answer();
@@ -86,15 +94,10 @@ class Controller_Survey extends Controller_Base
 			Messages::danger($msg);
 		}
 
+
 		if(count($validation->error_message()) == 0) {
 			if($data['survey']->userHasCompleted()) {
 				Messages::success("You're already completed this survey, thanks! You can still edit your answers below though.");
-			}
-		}
-
-		foreach($validation->input() as $field => $input) {
-			if(!isset($prefill[$field])) {
-				$prefill[$field] = $input;
 			}
 		}
 
