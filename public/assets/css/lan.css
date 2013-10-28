@@ -224,7 +224,7 @@ h4 {
 .seat_container .popover .popover-content > span.name {
   display: block;
   float: right;
-  width: 130px;
+  width: 100px;
   text-align: left;
 }
 .seat_container .popover .popover-content img {
