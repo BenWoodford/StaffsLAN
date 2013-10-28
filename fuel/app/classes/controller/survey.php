@@ -83,7 +83,7 @@ class Controller_Survey extends Controller_Base
 
 				$ans->question_id = $qobj[$key]->id;
 				$ans->user_id = $this->currentUser->id;
-				$ans->value = ($val == null ? false : $val);
+				$ans->value = ($val == null ? "" : $val);
 				$ans->save();
 			}
 
