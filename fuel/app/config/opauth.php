@@ -49,7 +49,7 @@ return array(
             'client_id' => 'Th0G46y0b0jNfA43aZ0tejcDhl707770',
             'client_secret' => 'K6FRQn4W8jIg3985tm4ie8MGzQx3tyWO',
 
-	        'redirect_uri' => 'http://localhost:8080/auth/go/oauth/oauth2callback',
+	        'redirect_uri' => 'http://lan.staffsvgs.co.uk/auth/go/oauth/oauth2callback',
 	        'scope' => 'read',
 
             'request_token_url' => 'http://staffsvgs.co.uk/api/oauth/authorize?client_id=Th0G46y0b0jNfA43aZ0tejcDhl707770&response_type=code&scope=read',
