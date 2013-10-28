@@ -41,11 +41,11 @@ class Model_Survey extends \Orm\Model
 		),
 	);
 
-	public function userHasCompleted($uid) {
+	public function userHasCompleted($uid = null) {
 		if($uid == null) {
 			$uid = Model_User::getCurrentUser();
 		}
-		
+
 		$qids = array();
 		$question_count = 0;
 		foreach($this->questiongroups as $group) {
