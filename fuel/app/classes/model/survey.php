@@ -41,7 +41,7 @@ class Model_Survey extends \Orm\Model
 		),
 	);
 
-	public function userHasCompleted() {
+	public function userHasCompleted($uid = Model_User::getCurrentUser()) {
 		$qids = array();
 		$question_count = 0;
 		foreach($this->questiongroups as $group) {
@@ -51,7 +51,7 @@ class Model_Survey extends \Orm\Model
 			}
 		}
 
-		$count = Model_Answer::query()->where(array('user_id','=', $this->currentUser->id), array('question_id', 'IN', $qids))->count();
+		$count = Model_Answer::query()->where(array('user_id','=', $uid), array('question_id', 'IN', $qids))->count();
 
 		if($count > 0)
 			return true;
