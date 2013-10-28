@@ -2,7 +2,7 @@
 
 class ExtraValidation {
 	public static function _validation_phone_number($val) {
-		$pattern = "/^(\+44\s?7\d{3}|\(?07\d{3}\)?)\s?\d{3}\s?\d{3}$/";
+		$pattern = "/^\s*\(?(020[78]?\)? ?[1-9][0-9]{2,3} ?[0-9]{4})$|^(0[1-8][0-9]{3}\)? ?[1-9][0-9]{2} ?[0-9]{3})\s*$/";
 
 		$match = preg_match($pattern,$val);
 
