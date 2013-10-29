@@ -111,4 +111,17 @@ class Controller_Auth extends Controller_Base {
         return new Response();
 
 	}
+
+    public function action_logout()
+    {
+        // remove the remember-me cookie, we logged-out on purpose
+        \Auth::dont_remember_me();
+
+        // logout
+        \Auth::logout();
+
+        // and go back to where you came from (or the application
+        // homepage if no previous page can be determined)
+        \Response::redirect('/');
+    }
 }
