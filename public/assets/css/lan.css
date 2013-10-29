@@ -69,6 +69,10 @@ h4 {
   color: #fff;
   padding-left: 5px;
 }
+.navbar #sitebar .logout a {
+  color: #fff;
+  padding-left: 5px;
+}
 .navbar .avatar {
   max-height: 24px;
   margin-right: 5px;
