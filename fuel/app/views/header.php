@@ -39,7 +39,7 @@
                             <span class="refresh"><i class="fa fa-refresh"></i> <a href="/auth/go/oauth">Refresh your Data</a></span>
                             <?php if(!empty($current_user->avatar_url)) echo '<img class="avatar" src="' . $current_user->avatar_url . '" />'; ?> 
                             Welcome <em><?=$current_user->username;?></em>
-                            <span class="logout"><i class="fa fa-signout"></i> <a href="/auth/logout">Logout</a></span>
+                            <span class="logout"><i class="fa fa-sign-out"></i> <a href="/auth/logout">Logout</a></span>
                             <?php } ?>
                         </div>
                     </div>
