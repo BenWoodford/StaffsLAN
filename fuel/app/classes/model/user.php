@@ -59,6 +59,13 @@ class Model_User extends \Orm\Model
 		//return Model_Seat::query()->where(array(array('lan_id' => Model_Lan::nextLAN()->id), array('user_id' => $this->id)))->count() > 0;
 	}
 
+	public function isVolunteer() {
+		if(!$this->hasTicket())
+			return false;
+
+		return $this->getTicket()->is_volunteer == 1
+	}
+
 	public static function getCurrentUser() {
 		$current = null;
 		// Assign current_user to the instance so controllers can use it

@@ -63,4 +63,57 @@ class Model_Survey extends \Orm\Model
 			return false;
 	}
 
+	public function generateReport($output) {
+		$qgs = $this->questiongroups;
+
+		$qarray = array();
+		$qids = array();
+		$qarray[0] = "Username";
+		foreach($qgs as $qg) {
+			foreach($qg->questions as $q) {
+				if($q->survey_type != 'info') {
+					$qarray[$q->id] = $q->survey_text;
+					$qids[] = $q->id;
+				}
+			}
+		}
+
+		$data = array();
+
+		foreach($qids as $id) {
+			$answers = Model_Answer::query()->where('question_id', $id)->get();
+			foreach($answers as $a) {
+				if(!isset($data[$a->user_id])) {
+					$data[$a->user_id] = array();
+					$data[$a->user_id][0] = Model_User::find($a->user_id)->username;
+					foreach($qids as $tmpid) {
+						$data[$a->user_id][$tmpid] = false;
+					}
+				}
+
+				$data[$a->user_id][$a->question_id] = $a->value;
+			}
+		}
+
+		$outputstr = "<table><thead><tr>";
+
+		foreach($qarray as $text) {
+			$outputstr .= "<th>" . $text . "</th>";
+		}
+
+		$outputstr .= "\n</tr></thead><tbody>";
+
+		foreach($data as $user => $answers) {
+			$outputstr .= "<tr>";
+
+			foreach($answers as $an) {
+				$outputstr .= "<td>" . $an . "</td>";
+			}
+
+			$outputstr .= "</tr>";
+		}
+
+		file_put_contents($output, $outputstr);
+	}
+
 }

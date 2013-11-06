@@ -3,10 +3,10 @@ class Model_Inout extends \Orm\Model
 {
 	protected static $_properties = array(
 		'id',
-		'inout_id',
 		'user_id',
 		'inout_time',
 		'lan_id',
+		'sign_type',
 		'created_at',
 		'updated_at',
 	);
@@ -33,4 +33,16 @@ class Model_Inout extends \Orm\Model
 		return $val;
 	}
 
+	public static function SignIn($uid) {
+		Model_Inout::SignInOut($uid, 'in');
+	}
+
+	public static function SignOut($uid) {
+		Model_Inout::SignInOut($uid, 'out');
+	}
+
+	public static function SignInOut($uid, $type) {
+		$io = new Model_Inout(array('user_id' => $uid, 'inout_time' => time(), 'lan_id' => Modell_Lan::nextLAN()->id, 'sign_type' => $type));
+		$io->save();
+	}
 }

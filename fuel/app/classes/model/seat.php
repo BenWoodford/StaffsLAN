@@ -86,11 +86,23 @@ class Model_Seat extends \Orm\Model
 	}
 
 	public static function getSeat($block, $num) {
-		$seat = Model_Seat::query()
-		->related("block")
-		->related("block.room")
-		->related("block.room.lan")
-		->where(array(array("block.room.lan.id" => Model_Lan::nextLAN()->id), array('seat_num' => $num), array("block.block_shorthand" => $block)));
+		$seat = Model_Seat::find('first', array(
+			'related' => array(
+				'block' => array(
+					'related' => array(
+						'room' => array(
+							'related' => array(
+								'lan' => array(
+									'where' => array('id' => 1)
+								),
+							),
+						),
+					),
+					'where' => array('block_shorthand', 'LIKE', 'C'),
+				),
+			),
+			'where' => array('seat_num' => 3)
+		));
 
 		return $seat->get_one();
 	}

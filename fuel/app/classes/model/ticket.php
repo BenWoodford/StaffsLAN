@@ -36,6 +36,43 @@ class Model_Ticket extends \Orm\Model
 		return Model_Ticket::query()->where(array(array('lan_id' => Model_Lan::nextLAN()->id), array('student_number' => $student)))->get_one();
 	}
 
+	public function printDue($sid = 1) {
+		$user = Model_User::query()->where('student_number', $this->student_number);
+
+		if($user->count() == 0) {
+			echo $this->student_number . " needs to login.\n";
+			return;
+		}
+
+		$user = $user->get_one();
+
+		$hasseat = false;
+
+		$hasseat = $user->hasSeat();
+
+		$survey = Model_Survey::find($sid);
+
+		$checkedin = $survey->userHasCompleted($user->id);
+
+
+		if(!$hasseat || !$checkedin) {
+			echo $this->student_number . " needs to: ";
+		}
+
+		if(!$hasseat) {
+			echo "pick a seat | ";
+		}
+
+		if(!$checkedin) {
+			echo "check in";
+		}
+
+		if(!$hasseat || !$checkedin)
+			echo "\n";
+
+		return;
+	}
+
 	public static function setVolunteer($number) {
 		$find = Model_Ticket::query()->where(array(array('lan_id' => Model_Lan::nextLAN()->id), array('student_number' => $number)));
 

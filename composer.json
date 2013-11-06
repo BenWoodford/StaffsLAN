@@ -1,41 +1,40 @@
 {
+    "description": "The FuelPHP framework", 
+    "name": "fuel/fuel", 
+    "license": "MIT", 
     "suggest": {
         "twig/twig": "Allow Twig templating with the Parser package", 
         "mthaml/mthaml": "Allow Haml templating with Twig supports with the Parser package", 
         "mustache/mustache": "Allow Mustache templating with the Parser package", 
         "smarty/smarty": "Allow Smarty templating with the Parser package"
     }, 
-    "name": "fuel/fuel", 
-    "license": "MIT", 
-    "type": "metapackage", 
     "support": {
         "irc": "irc://irc.freenode.org/fuelphp", 
         "forum": "http://fuelphp.com/forums"
     }, 
-    "scripts": {
-        "post-install-cmd": [
-            "php oil r install"
-        ]
-    }, 
-    "minimum-stability": "dev", 
     "authors": [
         {
             "name": "FuelPHP Development Team", 
             "email": "team@fuelphp.com"
         }
     ], 
+    "homepage": "http://fuelphp.com", 
+    "scripts": {
+        "post-install-cmd": [
+            "php oil r install"
+        ]
+    }, 
     "keywords": [
         "framework"
     ], 
     "config": {
         "vendor-dir": "fuel/vendor"
     }, 
-    "homepage": "http://fuelphp.com", 
+    "type": "metapackage", 
     "require": {
         "opauth/opauth": "0.4.4", 
         "monolog/monolog": "1.5.*", 
-        "php": ">=5.3.3", 
-        "fuelphp/upload": "2.0.1"
+        "php": ">=5.3.3"
     }, 
-    "description": "The FuelPHP framework"
+    "minimum-stability": "dev"
 }

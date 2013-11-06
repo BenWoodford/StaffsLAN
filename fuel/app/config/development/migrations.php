@@ -43,6 +43,10 @@ return array(
 				34 => '036_delete_date_from_answers',
 				35 => '037_alter_seats',
 				36 => '038_add_is_volunteer_to_tickets',
+				37 => '039_add_sign_type_to_inout',
+				38 => '040_delete_inout_id_from_inouts',
+				39 => '041_delete_inout_time_from_inouts',
+				40 => '042_add_inout_time_to_inouts',
 			),
 		),
 		'module' => 
