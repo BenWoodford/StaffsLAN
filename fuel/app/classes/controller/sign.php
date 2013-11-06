@@ -10,13 +10,13 @@ class Controller_Sign extends Controller_Base
 	}
 
 	public function action_in() {
-		Model_Inout::SignIn($this->current_user->id);
+		Model_Inout::SignIn($this->currentUser->id);
 
 		Response::redirect('/sign');
 	}
 
 	public function action_out() {
-		Model_Inout::SignOut($this->current_user->id);
+		Model_Inout::SignOut($this->currentUser->id);
 
 		Response::redirect('/sign');
 	}
