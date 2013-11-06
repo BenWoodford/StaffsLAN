@@ -11,3 +11,26 @@
 		<div class="clearfix"></div>
 	</div>
 </div>
+
+<div class="box">
+	<div class="box-header">
+		<h2>
+			<i class="fa"></i>
+			In/Out Log
+		</h2>
+	</div>
+	<div class="box-content">
+		<table class="table">
+		<?php foreach($log as $entry) { ?>
+			<tr class="<?=($entry->sign_type == 'in' ? 'in' : 'out');?>">
+				<td class="text-left">
+					<?=$entry->sign_type;?>
+				</td>
+				<td class="text-right">
+					<?=date("D j @ g:i a", $entry->inout_time);?>
+				</td>
+			</tr>
+		<?php } ?>
+		</table>
+	</div>
+</div>
