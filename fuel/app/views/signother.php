@@ -15,10 +15,10 @@ $(document).ready(function() {
 	<div class="box-content">
 		<p>Please enter a student number and press enter or scan a student card below...</p>
 
-		<form role="form">
+		<form role="form" method="post">
 			<div class="form-group">
 				<label for="entry" autofocus>Enter Student Number or Scan Card</label>
-				<input type="text" class="form-control" id="entry" placeholder="Enter Student Number or Scan Card" />
+				<input type="text" name="entry" class="form-control" id="entry" placeholder="Enter Student Number or Scan Card" />
 			</div>
 		</form>
 	</div>
@@ -44,4 +44,4 @@ $(document).ready(function() {
 		</p>
 	</div>
 </div>
-<?php } else var_dump($user); ?>
+<?php } ?>
