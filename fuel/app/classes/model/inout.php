@@ -42,6 +42,12 @@ class Model_Inout extends \Orm\Model
 	}
 
 	public static function SignInOut($uid, $type) {
+		$check = Model_Inout::query()->where(array(array('user_id' => $uid), array('inout_type' => $type), array('inout_time', '>', time()-(60))))->count();
+
+		if($check > 0) {
+			return;
+		}
+
 		$io = new Model_Inout(array('user_id' => $uid, 'inout_time' => time(), 'lan_id' => Model_Lan::nextLAN()->id, 'sign_type' => $type));
 		$io->save();
 	}
