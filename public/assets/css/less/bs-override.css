@@ -1,9 +1,10 @@
-.table tr.success {
+.table tr.success td {
   background-color: #5cb85c;
   border-color: #4cae4c;
   color: #fff;
 }
-.table tr.danger {
+
+.table tr.danger td {
   background-color: #d9534f;
   border-color: #d43f3a;
   color: #fff;
