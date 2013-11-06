@@ -15,14 +15,14 @@
 <div class="box">
 	<div class="box-header">
 		<h2>
-			<i class="fa"></i>
+			<i class="fa fa-list-ul"></i>
 			In/Out Log
 		</h2>
 	</div>
-	<div class="box-content">
+	<div class="box-content no-padding">
 		<table class="table">
 		<?php foreach($log as $entry) { ?>
-			<tr class="<?=($entry->sign_type == 'in' ? 'in' : 'out');?>">
+			<tr class="<?=($entry->sign_type == 'in' ? 'success' : 'danger');?>">
 				<td class="text-left">
 					<?=$entry->sign_type;?>
 				</td>
