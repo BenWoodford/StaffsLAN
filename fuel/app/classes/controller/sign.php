@@ -20,6 +20,49 @@ class Controller_Sign extends Controller_Base
 
 		Response::redirect('/sign');
 	}
+
+	public function action_other($uid = 0) {
+		if(!$this->currentUser->isVolunteer()) {
+			Response::redirect('/sign');
+			return;
+		}
+
+		$data['user'] = false;
+
+		if($uid > 0)
+			$data['user'] = Model_User::find($uid);
+
+		$view = View::forge('signother', $data);
+	}
+
+	public function post_other() {
+		$entry = Input::post('entry');
+
+		if(!is_numeric($entry)) {
+			Response::redirect('/sign/other/?error=numeric');
+			return;
+		}
+
+		if(strlen($entry) > 7 && strlen($entry) < 10) {
+			// It's a student number!
+			$find = Model_User::query()->where('student_number',$entry);
+
+			if($find->count() == 0) {
+				Response::redirect('/sign/other/?error=unknown_number');
+				return;
+			}
+
+			$user = $find->get_one();
+
+			Model_Inout::SignIn($user->id);
+			Response::redirect('/sign/other/' . $user->id);
+			return;
+		}
+
+		if(strlen($entry) > 10) {
+			// Student Card. Not done yet.
+		}
+	}
 }
 
 ?>

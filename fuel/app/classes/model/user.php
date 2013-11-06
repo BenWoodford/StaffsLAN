@@ -59,6 +59,10 @@ class Model_User extends \Orm\Model
 		//return Model_Seat::query()->where(array(array('lan_id' => Model_Lan::nextLAN()->id), array('user_id' => $this->id)))->count() > 0;
 	}
 
+	public function hasCheckedIn() {
+		return Model_Survey::find(1)->userHasCompleted($this->id);
+	}
+
 	public function isVolunteer() {
 		if(!$this->hasTicket())
 			return false;
