@@ -32,7 +32,7 @@ class Controller_Sign extends Controller_Base
 		$data['user'] = false;
 
 		if($uid > 0)
-			$data['user'] = Model_User::find($uid);
+			$data['user'] = Model_User::find(@intval($uid));
 
 		$view = View::forge('signother', $data);
 	}
