@@ -33,6 +33,7 @@ class Controller_Sign extends Controller_Base
 			$data['user'] = Model_User::find(@intval($uid));
 
 		$view = View::forge('signother', $data);
+		return Response::forge($view);
 	}
 
 	public function post_other() {
