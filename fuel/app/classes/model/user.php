@@ -63,7 +63,7 @@ class Model_User extends \Orm\Model
 		if(!$this->hasTicket())
 			return false;
 
-		return $this->getTicket()->is_volunteer == 1
+		return $this->getTicket()->is_volunteer == 1;
 	}
 
 	public static function getCurrentUser() {
