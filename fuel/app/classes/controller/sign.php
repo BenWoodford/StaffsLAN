@@ -27,14 +27,10 @@ class Controller_Sign extends Controller_Base
 			return;
 		}
 
-		var_dump($uid);
-
 		$data['user'] = false;
 
 		if($uid != 0)
 			$data['user'] = Model_User::find(@intval($uid));
-
-		var_dump($data);
 
 		$view = View::forge('signother', $data);
 	}

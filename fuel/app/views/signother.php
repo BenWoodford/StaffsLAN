@@ -18,4 +18,4 @@
 		</p>
 	</div>
 </div>
-<?php } ?>
+<?php } else var_dump($user); ?>
