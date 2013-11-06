@@ -24,7 +24,7 @@
 		<?php foreach($log as $entry) { ?>
 			<tr class="<?=($entry->sign_type == 'in' ? 'success' : 'danger');?>">
 				<td class="text-left">
-					<i class="fa fa-sign-<?=$entry->sign_type;?>"></i> <?=($entry->sign_type == 'in' ? 'Signed In' : 'Signed Out';?>
+					<i class="fa fa-sign-<?=$entry->sign_type;?>"></i> <?=($entry->sign_type == 'in' ? 'Signed In' : 'Signed Out')?>
 				</td>
 				<td class="text-right">
 					<?=date("D j @ g:i a", $entry->inout_time);?>
