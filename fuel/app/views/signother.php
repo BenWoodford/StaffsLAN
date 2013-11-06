@@ -1,5 +1,31 @@
+<script type="text/javascript">
+$(document).ready(function() {
+	setInterval($("#entry").focus(),1000);
+});
+</script>
+
+<div class="box col-md-6 col-sm-6">
+	<div class="box-header">
+		<h2>
+			<i class="fa fa-user"></i>
+			User Scanner
+		</h2>
+	</div>
+
+	<div class="box-content">
+		<p>Please enter a student number and press enter or scan a student card below...</p>
+
+		<form role="form">
+			<div class="form-group">
+				<label for="entry" autofocus>Enter Student Number or Scan Card</label>
+				<input type="text" class="form-control" id="entry" placeholder="Enter Student Number or Scan Card" />
+			</div>
+		</form>
+	</div>
+</div>
+
 <?php if($user != false) { ?>
-<div class="box">
+<div class="box col-md-6 col-sm-6">
 	<div class="box-header">
 		<h2>
 			<i class="fa fa-user"></i>
