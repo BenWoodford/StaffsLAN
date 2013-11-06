@@ -29,6 +29,8 @@ class Controller_Sign extends Controller_Base
 
 		$data['user'] = false;
 
+		var_dump($data);
+
 		if($uid > 0)
 			$data['user'] = Model_User::find($uid);
 
