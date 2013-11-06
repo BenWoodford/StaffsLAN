@@ -23,7 +23,7 @@ class Controller_Api extends Controller_Rest {
 					'uid' => $user->id,
 					'username' => $user->username,
 					'volunteer' => $user->isVolunteer(),
-					'student_number' => $user->student_number
+					'student_number' => $user->student_number,
 					'checked_in' => Model_Survey::find(1)->userHasCompleted($user->id),
 					'avatar' => $user->avatar_url,
 				),
