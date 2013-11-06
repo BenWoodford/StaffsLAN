@@ -42,7 +42,7 @@ class Model_Inout extends \Orm\Model
 	}
 
 	public static function SignInOut($uid, $type) {
-		$check = Model_Inout::query()->where(array(array('user_id' => $uid), array('inout_type' => $type), array('inout_time', '>', time()-(60))))->count();
+		$check = Model_Inout::query()->where(array(array('user_id' => $uid), array('sign_type' => $type), array('inout_time', '>', time()-(60))))->count();
 
 		if($check > 0) {
 			return;
