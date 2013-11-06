@@ -1,6 +1,6 @@
 <?php
 
-class Controller_NoTicket extends Controller_Base
+class Controller_Sign extends Controller_Base
 {
 	public function action_index()
 	{
