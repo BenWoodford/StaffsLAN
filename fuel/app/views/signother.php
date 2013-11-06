@@ -1,6 +1,6 @@
 <script type="text/javascript">
 $(document).ready(function() {
-	setInterval($("#entry").focus(),1000);
+	setInterval(function(){ $("#entry").focus(); },1000);
 });
 </script>
 
@@ -17,8 +17,7 @@ $(document).ready(function() {
 
 		<form role="form" method="post">
 			<div class="form-group">
-				<label for="entry" autofocus>Enter Student Number or Scan Card</label>
-				<input type="text" name="entry" class="form-control" id="entry" placeholder="Enter Student Number or Scan Card" />
+				<input type="text" name="entry" class="form-control" id="entry" placeholder="Enter Student Number or Scan Card" autofocus />
 			</div>
 		</form>
 	</div>

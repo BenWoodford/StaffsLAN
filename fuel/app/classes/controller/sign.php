@@ -39,6 +39,16 @@ class Controller_Sign extends Controller_Base
 	public function post_other() {
 		$entry = Input::post('entry');
 
+		if(Input::get('error',false)) {
+			if(Input::get('error') == "numeric") {
+				Messages::danger("That is not a number!");
+			}
+
+			if(Input::get('error') == "unknown_number") {
+				Messages::danger("That Student Number is not in our database...");
+			}
+		}
+
 		if(!is_numeric($entry)) {
 			Response::redirect('/sign/other/?error=numeric');
 			return;
