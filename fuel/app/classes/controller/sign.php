@@ -21,13 +21,13 @@ class Controller_Sign extends Controller_Base
 		Response::redirect('/sign');
 	}
 
-	public function action_other() {
+	public function action_other($uid = 0) {
 		if(!$this->currentUser->isVolunteer()) {
 			Response::redirect('/sign');
 			return;
 		}
 
-		$uid = $this->param('user');
+		var_dump($uid);
 
 		$data['user'] = false;
 
