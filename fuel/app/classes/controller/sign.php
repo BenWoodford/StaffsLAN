@@ -27,7 +27,7 @@ class Controller_Sign extends Controller_Base
 			return;
 		}
 
-		$uid = $this->param(1);
+		$uid = $this->param('user');
 
 		$data['user'] = false;
 
