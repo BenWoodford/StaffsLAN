@@ -42,7 +42,7 @@ class Model_Inout extends \Orm\Model
 	}
 
 	public static function SignInOut($uid, $type) {
-		$io = new Model_Inout(array('user_id' => $uid, 'inout_time' => time(), 'lan_id' => Modell_Lan::nextLAN()->id, 'sign_type' => $type));
+		$io = new Model_Inout(array('user_id' => $uid, 'inout_time' => time(), 'lan_id' => Model_Lan::nextLAN()->id, 'sign_type' => $type));
 		$io->save();
 	}
 }
