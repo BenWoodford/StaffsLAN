@@ -435,13 +435,13 @@ h4 {
 #events_list {
   display: none;
 }
-.table tr.success {
-  background-color: #5cb85c;
-  border-color: #4cae4c;
+.box .table tr.success > td {
+  background-color: #5cb85c!important;
+  border-color: #4cae4c!important;
   color: #fff;
 }
-.table tr.danger {
-  background-color: #d9534f;
-  border-color: #d43f3a;
+.box .table tr.danger > td {
+  background-color: #d9534f!important;
+  border-color: #d43f3a!important;
   color: #fff;
 }
