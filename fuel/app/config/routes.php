@@ -7,4 +7,6 @@ return array(
 	'auth/go' => 'auth/go',
 	'auth/callback' => array('auth/callback', 'name' => 'callback'),
 	'survey' => 'survey',
+
+	'sign/other/:user' => 'sign/other',
 );
