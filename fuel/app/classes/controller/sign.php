@@ -4,7 +4,8 @@ class Controller_Sign extends Controller_Base
 {
 	public function action_index()
 	{
-		$view = View::forge('sign');
+		$data['log'] = array();
+		$view = View::forge('sign', $data);
 		return Response::forge($view);
 	}
 
