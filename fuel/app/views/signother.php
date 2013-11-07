@@ -37,7 +37,7 @@ $(document).ready(function() {
 		<p>
 			<strong>Username:</strong> <?=$user->username;?><br />
 			<strong>Student ID:</strong> <?=$user->student_number;?><br />
-			<strong>Checked in?</strong> <?=($user->hasCheckedIn() ? "Yes" : "<blink>No</blink");?><br />
+			<strong>Checked in?</strong> <?=($user->hasCheckedIn() ? "Yes" : "<blink>No</blink>");?><br />
 			<strong>Has Seat?</strong> <?=($user->hasSeat() ? "Yes" : "<blink>No</blink>");?><br />
 			<strong>Steam ID:</strong> <?=(strlen($user->steam)> 0 ? $user->steam : "Not Entered");?><br />
 		</p>
