@@ -32,12 +32,6 @@ class Controller_Sign extends Controller_Base
 		if($uid != 0)
 			$data['user'] = Model_User::find(@intval($uid));
 
-		$view = View::forge('signother', $data);
-		return Response::forge($view);
-	}
-
-	public function post_other() {
-		$entry = Input::post('entry');
 
 		if(Input::get('error',false)) {
 			if(Input::get('error') == "numeric") {
@@ -47,9 +41,14 @@ class Controller_Sign extends Controller_Base
 			if(Input::get('error') == "unknown_number") {
 				Messages::danger("That Student Number is not in our database...");
 			}
-
-			var_dump(Input::get('error'));
 		}
+
+		$view = View::forge('signother', $data);
+		return Response::forge($view);
+	}
+
+	public function post_other() {
+		$entry = Input::post('entry');
 
 		if(!is_numeric($entry)) {
 			Response::redirect('/sign/other/?error=numeric');
