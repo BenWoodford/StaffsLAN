@@ -47,6 +47,8 @@ class Controller_Sign extends Controller_Base
 			if(Input::get('error') == "unknown_number") {
 				Messages::danger("That Student Number is not in our database...");
 			}
+
+			var_dump(Input::get('error'));
 		}
 
 		if(!is_numeric($entry)) {
