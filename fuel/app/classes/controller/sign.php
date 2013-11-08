@@ -71,7 +71,8 @@ class Controller_Sign extends Controller_Base
 			$find = Model_User::query()->where('student_number',$entry);
 
 			if($find->count() == 0) {
-				Response::redirect('/sign/other/?error=unknown_number');
+				//Response::redirect('/sign/other/?error=unknown_number');
+				echo "Oh.";
 				return;
 			}
 
@@ -80,7 +81,7 @@ class Controller_Sign extends Controller_Base
 			$user = $find->get_one();
 
 			Model_Inout::SignIn($user->id);
-			Response::redirect('/sign/other/' . $user->id);
+			//Response::redirect('/sign/other/' . $user->id);
 			return;
 		}
 	}
