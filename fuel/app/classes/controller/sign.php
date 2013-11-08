@@ -29,8 +29,12 @@ class Controller_Sign extends Controller_Base
 
 		$data['user'] = false;
 
-		if($uid != 0)
+		if($uid != 0) {
 			$data['user'] = Model_User::find(@intval($uid));
+			if(strlen($data['user']->student_number) < 8) {
+				$data['user']->student_number = 0 . $data['user']->student_number;
+			}
+		}
 
 
 		if(Input::get('error',false)) {
@@ -55,6 +59,13 @@ class Controller_Sign extends Controller_Base
 			return;
 		}
 
+		if(strlen($entry) == 13) {
+			// Student Card Library Number
+			$entry = substr($entry, 5);
+		}
+
+		$entry = @intval($entry) + 0;
+
 		if(strlen($entry) > 7 && strlen($entry) < 10) {
 			// It's a student number!
 			$find = Model_User::query()->where('student_number',$entry);
@@ -69,10 +80,6 @@ class Controller_Sign extends Controller_Base
 			Model_Inout::SignIn($user->id);
 			Response::redirect('/sign/other/' . $user->id);
 			return;
-		}
-
-		if(strlen($entry) > 10) {
-			// Student Card. Not done yet.
 		}
 	}
 }
