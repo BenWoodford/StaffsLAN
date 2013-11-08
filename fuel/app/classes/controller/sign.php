@@ -75,6 +75,8 @@ class Controller_Sign extends Controller_Base
 				return;
 			}
 
+			var_dump($user);
+
 			$user = $find->get_one();
 
 			Model_Inout::SignIn($user->id);
