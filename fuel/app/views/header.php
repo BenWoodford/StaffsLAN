@@ -57,7 +57,7 @@
 	        				<li><a href="#" class="coming-soon"><i class="fa fa-signal"></i><span class="hidden-sm">Servers</span></a></li>
 	        				<li><a href="#" class="coming-soon"><i class="fa fa-calendar"></i><span class="hidden-sm">Schedule</span></a></li>
 	        				<li><a href="/information/"><i class="fa fa-info"></i><span class="hidden-sm">Information</span></a></li>
-	        				<li><a href="#" class="coming-soon"><i class="fa fa-sign-in"></i><span class="hidden-sm">Sign in/out</span></a></li>
+	        				<li><a href="/sign/"><i class="fa fa-sign-in"></i><span class="hidden-sm">Sign in/out</span></a></li>
 	        				<li><a href="#" class="coming-soon"><i class="fa fa-question"></i><span class="hidden-sm">Call for Help!</span></a></li>
                             <li><a href="/survey/"><i class="fa fa-list-alt"></i><span class="hidden-sm">Surveys</span></a></li>
 	        			</ul>
