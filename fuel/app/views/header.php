@@ -53,7 +53,7 @@
 	        				<li><a href="/"><i class="fa fa-home"></i><span class="hidden-sm">LAN Home</span></a></li>
 	        				<li><a href="/survey/view/1"><i class="fa fa-ticket"></i><span class="hidden-sm">Online Check-in</span></a></li>
 	        				<li><a href="/map/"><i class="fa fa-map-marker"></i><span class="hidden-sm">Live Map</span></a></li>
-	        				<li><a href="#" class="coming-soon"><i class="fa fa-sitemap"></i><span class="hidden-sm">Tournaments</span></a></li>
+	        				<li><a href="http://staffsvgs.challonge.com"><i class="fa fa-sitemap"></i><span class="hidden-sm">Tournaments</span></a></li>
 	        				<li><a href="#" class="coming-soon"><i class="fa fa-signal"></i><span class="hidden-sm">Servers</span></a></li>
 	        				<li><a href="#" class="coming-soon"><i class="fa fa-calendar"></i><span class="hidden-sm">Schedule</span></a></li>
 	        				<li><a href="/information/"><i class="fa fa-info"></i><span class="hidden-sm">Information</span></a></li>
