@@ -54,6 +54,8 @@ class Controller_Sign extends Controller_Base
 	public function post_other() {
 		$entry = Input::post('entry');
 
+		var_dump($entry);
+
 		if(!is_numeric($entry)) {
 			Response::redirect('/sign/other/?error=numeric');
 			return;
@@ -64,7 +66,11 @@ class Controller_Sign extends Controller_Base
 			$entry = substr($entry, 5);
 		}
 
+		var_dump($entry);
+
 		$entry = @intval($entry) + 0;
+
+		var_dump($entry);
 
 		if(strlen($entry) > 7 && strlen($entry) < 10) {
 			// It's a student number!
