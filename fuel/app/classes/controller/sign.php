@@ -54,8 +54,6 @@ class Controller_Sign extends Controller_Base
 	public function post_other() {
 		$entry = Input::post('entry');
 
-		var_dump($entry);
-
 		if(!is_numeric($entry)) {
 			Response::redirect('/sign/other/?error=numeric');
 			return;
@@ -66,28 +64,22 @@ class Controller_Sign extends Controller_Base
 			$entry = substr($entry, 5);
 		}
 
-		var_dump($entry);
-
 		$entry = @intval($entry) + 0;
 
-		var_dump($entry);
-
-		if(strlen($entry) > 7 && strlen($entry) < 10) {
+		if(strlen($entry) >= 7 && strlen($entry) < 10) {
 			// It's a student number!
 			$find = Model_User::query()->where('student_number',$entry);
 
 			if($find->count() == 0) {
-				//Response::redirect('/sign/other/?error=unknown_number');
+				Response::redirect('/sign/other/?error=unknown_number');
 				echo "Oh.";
 				return;
 			}
 
-			var_dump($user);
-
 			$user = $find->get_one();
 
 			Model_Inout::SignIn($user->id);
-			//Response::redirect('/sign/other/' . $user->id);
+			Response::redirect('/sign/other/' . $user->id);
 			return;
 		}
 	}
