@@ -68,6 +68,7 @@
 										. $seat->seat_num . '" '
 										. 'data-seat-id="' . $seat->id . '" class="seat'
 										. ($seat->isOccupied() ? " occupied" : "")
+										. ($seat->user->isSignedIn() ? " signedin" : " signedout")
 										. '" data-type="' . $seat->seat_type . '">'
 											. '<i class="fa fa-arrow-' . $seat->seat_direction . '"></i>';
 						if($seat->user && !empty($seat->user->avatar_url)) {

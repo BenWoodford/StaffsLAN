@@ -89,4 +89,19 @@ class Model_User extends \Orm\Model
 
 		return $current;
 	}
+
+	public function isSignedIn() {
+		$lan = Model_Lan::nextLAN();
+		$inout = Model_Inout::find('last', array(
+			'where' => array(
+				array('user_id' => $this->id)
+			),
+			'order_by' => array('inout_time' => 'desc')
+		));
+
+		if(!$inout)
+			return false;
+
+		return $inout->sign_type == 'in';
+	}
 }

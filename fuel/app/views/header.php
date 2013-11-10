@@ -55,7 +55,7 @@
 	        				<li><a href="/map/"><i class="fa fa-map-marker"></i><span class="hidden-sm">Live Map</span></a></li>
 	        				<li><a href="http://staffsvgs.challonge.com"><i class="fa fa-sitemap"></i><span class="hidden-sm">Tournaments</span></a></li>
 	        				<li><a href="#" class="coming-soon"><i class="fa fa-signal"></i><span class="hidden-sm">Servers</span></a></li>
-	        				<li><a href="#" class="coming-soon"><i class="fa fa-calendar"></i><span class="hidden-sm">Schedule</span></a></li>
+	        				<li><a href="https://www.google.com/calendar/embed?src=dHdlZWRsZXIuY28udWtfcDNlaXNsNTdwaXZsaGw0aHQyZ3Q3OGJsNDBAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ"><i class="fa fa-calendar"></i><span class="hidden-sm">Schedule</span></a></li>
 	        				<li><a href="/information/"><i class="fa fa-info"></i><span class="hidden-sm">Information</span></a></li>
 	        				<li><a href="/sign/"><i class="fa fa-sign-in"></i><span class="hidden-sm">Sign in/out</span></a></li>
 	        				<li><a href="#" class="coming-soon"><i class="fa fa-question"></i><span class="hidden-sm">Call for Help!</span></a></li>
