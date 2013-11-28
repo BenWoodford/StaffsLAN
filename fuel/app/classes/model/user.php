@@ -90,7 +90,7 @@ class Model_User extends \Orm\Model
 		return $current;
 	}
 
-	public function isSignedIn() {
+	public function lastSignIn() {
 		$lan = Model_Lan::nextLAN();
 		$inout = Model_Inout::find('last', array(
 			'where' => array(
@@ -102,6 +102,6 @@ class Model_User extends \Orm\Model
 		if(!$inout)
 			return false;
 
-		return $inout->sign_type == 'in';
+		return $inout;
 	}
 }

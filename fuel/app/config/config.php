@@ -277,6 +277,7 @@ return array(
 			'auth',
 			'orm',
 			'messages',
+			'newrelic',
 		),
 
 		/**

@@ -246,6 +246,11 @@ h4 {
   width: 100px;
   text-align: left;
 }
+.seat_container .popover .popover-content > span.time {
+  display: block;
+  text-align: left;
+  clear: both;
+}
 .seat_container .popover .popover-content img {
   max-width: 64px;
   float: left;
@@ -306,10 +311,6 @@ h4 {
   border-color: #00CCFF;
   background-color: #97EAFF;
 }
-.seat_container .seat.signedout {
-  border-color: red;
-  background-color: #F76C6C;
-}
 .seat_container .seat.ingame {
   border-color: #6acc0a;
   background-color: #c8ff93;
@@ -325,6 +326,10 @@ h4 {
 .seat_container .seat[data-type="staff"] {
   background-color: #b976fe;
   border-color: #8231d4;
+}
+.seat_container .seat.signedout {
+  border-color: red!important;
+  background-color: #F76C6C;
 }
 .room {
   position: absolute;

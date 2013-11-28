@@ -4,7 +4,7 @@ $(document).ready(function() {
 
 		var content;
 		if($(this).data('name')) {
-			content = '<span class="name">' + $(this).data('name') + '</span><img src="' + $(this).data('avatar') + '" />';
+			content = '<img src="' + $(this).data('avatar') + '" /><span class="name">' + $(this).data('name') + '</span><span class="time">' + ($(this).data('signin') ? "In/Out time: " + $(this).data('signin') : "") + '</span>';
 		} else {
 			if($(this).data('type') == 'volunteer' && ticket_type != 'volunteer') {
 				content = "Volunteer seats cannot be pre-booked.";

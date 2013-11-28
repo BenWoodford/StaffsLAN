@@ -66,9 +66,10 @@
 								. $seat->id . '">'
 									. '<div data-toggle="tooltip" data-name="' . ($seat->user ? htmlentities($seat->user->username) : "") . '" data-avatar="' . ($seat->user && !empty($seat->user->avatar_url) ? $seat->user->avatar_url : "") . '" data-seat="' . $block->block_shorthand
 										. $seat->seat_num . '" '
+										. (($seat->user->lastSignIn() && $current_user->isVolunteer()) ? 'data-signin="' . date("D j @ g:i a", $seat->user->lastSignIn()->inout_time) . '"' : "" )
 										. 'data-seat-id="' . $seat->id . '" class="seat'
 										. ($seat->isOccupied() ? " occupied" : "")
-										. ($seat->user->isSignedIn() ? " signedin" : " signedout")
+										. ($seat->user->lastSignIn() && $seat->user->lastSignIn()->sign_type == 'in' ? " signedin" : " signedout")
 										. '" data-type="' . $seat->seat_type . '">'
 											. '<i class="fa fa-arrow-' . $seat->seat_direction . '"></i>';
 						if($seat->user && !empty($seat->user->avatar_url)) {

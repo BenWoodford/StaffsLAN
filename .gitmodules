@@ -28,3 +28,6 @@
 [submodule "fuel/packages/messages"]
 	path = fuel/packages/messages
 	url = https://github.com/BenWoodford/FuelPHP-Messages.git
+[submodule "fuel/packages/newrelic"]
+	path = fuel/packages/newrelic
+	url = https://github.com/tabacco/fuelphp-newrelic.git
