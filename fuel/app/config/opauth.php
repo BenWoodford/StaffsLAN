@@ -46,8 +46,8 @@ return array(
     'Strategy' => array(
         // Define strategies and their respective configs here
         'OAuth' => array(
-            'client_id' => 'Th0G46y0b0jNfA43aZ0tejcDhl707770',
-            'client_secret' => 'K6FRQn4W8jIg3985tm4ie8MGzQx3tyWO',
+            'client_id' => getenv('FUEL_OPAUTH_CLIENTID'),
+            'client_secret' => getenv('FUEL_OPAUTH_CLIENTSECRET'),
 
 	        'redirect_uri' => 'http://lan.staffsvgs.co.uk/auth/go/oauth/oauth2callback',
 	        'scope' => 'read',
