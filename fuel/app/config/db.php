@@ -8,9 +8,9 @@
 return array(
 	'default' => array(
 		'connection' => array(
-			'dsn' => 'mysql:host=127.0.0.1;dbname=staffs_lan',
-			'username' => 'staffs_lan',
-			'password' => 'MGNkNGEwNDFk',
+			'dsn' => 'mysql:host=' . getenv('FUEL_DBHOST') . ';dbname=' . getenv('FUEL_DBNAME'),
+			'username' => getenv('FUEL_DBUSER'),
+			'password' => getenv('FUEL_DBPASS')
 		)
 	)
 );
