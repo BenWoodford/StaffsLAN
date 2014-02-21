@@ -47,4 +47,23 @@ class Model_Questiongroup extends \Orm\Model
 	    ),
 	);
 
+        public function cloneQuestionGroup() {
+                $new = new Model_QuestionGroup(array(
+                        'survey_id' => $this->survey_id,
+                        'group_name' => $this->group_name,
+                ));
+
+                $new->save();
+
+                foreach($this->questions as $q) {
+                        $newq = $q->cloneQuestion();
+                        $newq->questiongroup_id = $new->id;
+                        $new->questions[] = $newq;
+                }
+
+                $new->save();
+
+                return $new;
+        }
+
 }

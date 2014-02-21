@@ -47,4 +47,19 @@ class Model_Question extends \Orm\Model
 	    ),
 	);
 
+        public function cloneQuestion() {
+                $new = new Model_Question(array(
+                        'questiongroup_id' => $this->questiongroup_id,
+                        'survey_text' => $this->survey_text,
+                        'survey_type' => $this->survey_type,
+                        'data' => $this->data,
+                        'validation_rule' => $this->validation_rule,
+                        'order' => $this->order,
+                ));
+
+                $new->save();
+
+                return $new;
+        }
+
 }

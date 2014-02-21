@@ -20,6 +20,8 @@ class Controller_Base extends Controller_Template {
 
 		View::set_global('current_user', $this->currentUser);
 
+		View::set_global('next_lan', Model_Lan::nextLan());
+
 		View::set_global('custom_config', Config::load('custom'));
 
 		$facebook = new Facebook(array('appId' => '565533596803930', 'secret' => 'ed4f20e2f1e2cd55a3a0968c58980785'));

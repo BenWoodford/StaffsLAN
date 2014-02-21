@@ -28,8 +28,8 @@ class Controller_Home extends Controller_Base
 		// Todo items for user
 		$todos = array();
 
-		if(!Model_Survey::find(1)->userHasCompleted()) {
-			$todos[] = array('icon' => 'list-alt', 'link' => '/survey/view/1', 'text' => 'Complete Online Check-in');
+		if(!Model_Survey::find(3)->userHasCompleted()) {
+			$todos[] = array('icon' => 'list-alt', 'link' => '/survey/view/3', 'text' => 'Complete Online Check-in');
 		}
 
 		if(!$this->currentUser->hasSeat()) {

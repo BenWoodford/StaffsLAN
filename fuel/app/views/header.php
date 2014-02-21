@@ -2,7 +2,7 @@
 <html lang="en-us">
         <head>
                 <meta charset="utf-8">
-                <title>StaffsLAN v1.0</title>
+                <title><?php echo $next_lan->lan_title; ?></title>
                 <meta name="viewport" content="width=1024">
                 <!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 
@@ -31,7 +31,7 @@
         		<div class="container container-full">
                     <div class="row">
                         <div class="col-xs-2 col-sm-1 col-md-2" id="site-logo">
-                            StaffsLAN
+                            <?php echo $next_lan->lan_title; ?>
                         </div>
 
                         <div class="col-xs-10 col-sm-11 col-md-10" id="sitebar">
@@ -51,7 +51,7 @@
 	        		<div id="sidebar" class="col-sm-1 col-md-2">
     	    			<ul>
 	        				<li><a href="/"><i class="fa fa-home"></i><span class="hidden-sm">LAN Home</span></a></li>
-	        				<li><a href="/survey/view/1"><i class="fa fa-ticket"></i><span class="hidden-sm">Online Check-in</span></a></li>
+	        				<li><a href="/survey/view/3"><i class="fa fa-ticket"></i><span class="hidden-sm">Online Check-in</span></a></li>
 	        				<li><a href="/map/"><i class="fa fa-map-marker"></i><span class="hidden-sm">Live Map</span></a></li>
 	        				<li><a href="http://staffsvgs.challonge.com"><i class="fa fa-sitemap"></i><span class="hidden-sm">Tournaments</span></a></li>
 	        				<li><a href="#" class="coming-soon"><i class="fa fa-signal"></i><span class="hidden-sm">Servers</span></a></li>

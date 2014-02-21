@@ -55,7 +55,7 @@ class Model_Survey extends \Orm\Model
 			}
 		}
 
-		$count = Model_Answer::query()->where(array('user_id','=', $uid), array('question_id', 'IN', $qids))->count();
+		$count = DB::select()->from('answers')->where_open()->where('user_id','=', $uid)->and_where('question_id', 'IN', $qids)->where_close()->execute()->count();
 
 		if($count == $question_count)
 			return true;
@@ -115,5 +115,25 @@ class Model_Survey extends \Orm\Model
 
 		file_put_contents($output, $outputstr);
 	}
+
+        public function cloneSurvey() {
+                $new = new Model_Survey(array(
+                        'survey_title' => $this->survey_title,
+                        'lan_id' => $this->lan_id,
+                        'survey_description' => $this->survey_description,
+                ));
+
+                $new->save();
+
+                foreach($this->questiongroups as $qg) {
+                        $newqg = $qg->cloneQuestionGroup();
+                        $newqg->survey_id = $new->id;
+                        $new->questiongroups[] = $newqg;
+                }
+
+                $new->save();
+
+                return $new;
+        }
 
 }

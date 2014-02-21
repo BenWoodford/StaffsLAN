@@ -319,11 +319,7 @@ h4 {
   box-shadow: 0px 0px 3px #555;
   text-indent: 9999px;
 }
-.seat_container .seat[data-type="volunteer"] {
-  background-color: #ffca92;
-  border-color: #ff8400;
-}
-.seat_container .seat[data-type="staff"] {
+.seat_container .seat[data-type="staff"], .seat_container .seat[data-type="volunteer"] {
   background-color: #b976fe;
   border-color: #8231d4;
 }

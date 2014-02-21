@@ -36,7 +36,7 @@ class Model_Lan extends \Orm\Model
 	public static function nextLAN() {
 		$nextlan = Model_Lan::find('first', array(
 				'where' => array(
-					array('lan_end', '>', time()),
+					array('lan_end', '>', date( 'Y-m-d H:i:s')),
 				),
 				'order_by' => array('lan_end' => 'asc'),
 			)
@@ -45,7 +45,7 @@ class Model_Lan extends \Orm\Model
 		if(!$nextlan) {
 			$nextlan = Model_Lan::find('first', array(
 					'where' => array(
-						array('lan_end', '<', time())
+						array('lan_end', '<', date( 'Y-m-d H:i:s'))
 					),
 					'order_by' => array('lan_end' => 'desc'),
 				)
@@ -102,5 +102,32 @@ class Model_Lan extends \Orm\Model
 	    	'cascade_delete' => false,
 	    ),
 	);
+
+        public function cloneLAN() {
+                $new = new Model_Lan(array(
+                        'lan_start' => $this->lan_start,
+                        'lan_end' => $this->lan_end,
+                        'lan_title' => $this->lan_title,
+                        'lan_description' => $this->lan_description,
+                ));
+
+                $new->save();
+
+                foreach($this->rooms as $room) {
+                        $newroom = $room->cloneRoom();
+                        $newroom->lan_id = $new->id;
+                        $new->rooms[] = $newroom;
+                }
+
+		foreach($this->surveys as $survey) {
+			$newsurvey = $survey->cloneSurvey();
+			$newsurvey->lan_id = $new->id;
+			$new->surveys[] = $survey;
+		}
+
+                $new->save();
+
+                return $new;
+        }
 
 }

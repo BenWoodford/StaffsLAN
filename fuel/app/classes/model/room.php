@@ -56,4 +56,27 @@ class Model_Room extends \Orm\Model
 	        'cascade_delete' => false,
 	    )
 	);
+
+        public function cloneRoom() {
+                $new = new Model_Room(array(
+                        'room_name' => $this->room_name,
+                        'lan_id' => $this->lan_id,
+                        'room_locx' => $this->room_locx,
+                        'room_locy' => $this->room_locy,
+                        'room_height' => $this->room_height,
+                        'room_width' => $this->room_width,
+                ));
+
+                $new->save();
+
+                foreach($this->blocks as $block) {
+                        $newblock = $block->cloneBlock();
+                        $newblock->room_id = $new->id;
+                        $new->blocks[] = $newblock;
+                }
+
+                $new->save();
+
+                return $new;
+        }
 }

@@ -16,20 +16,10 @@
 				<div class="seat_container"><div class="seat occupied" data-type="player"></div></div>
 				<span>Occupied</span>
 			</div>
-
-			<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-				<div class="seat_container"><div class="seat ingame" data-type="player"></div></div>
-				<span>In-Game</span>
-			</div>
-
-			<div class="col-lg-offset-2 col-md-offset-2 col-lg-4 col-md-4 col-sm-6 col-xs-12">
-				<div class="seat_container"><div class="seat" data-type="volunteer"></div></div>
-				<span>Volunteer</span>
-			</div>
-
+			
 			<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
 				<div class="seat_container"><div class="seat" data-type="staff"></div></div>
-				<span>Committee</span>
+				<span>Staff</span>
 			</div>
 		</div>
 	</div>
@@ -66,10 +56,10 @@
 								. $seat->id . '">'
 									. '<div data-toggle="tooltip" data-name="' . ($seat->user ? htmlentities($seat->user->username) : "") . '" data-avatar="' . ($seat->user && !empty($seat->user->avatar_url) ? $seat->user->avatar_url : "") . '" data-seat="' . $block->block_shorthand
 										. $seat->seat_num . '" '
-										. (($seat->user->lastSignIn() && $current_user->isVolunteer()) ? 'data-signin="' . date("D j @ g:i a", $seat->user->lastSignIn()->inout_time) . '"' : "" )
+										. (($seat->isOccupied() &&$seat->user->lastSignIn() && $current_user->isVolunteer()) ? 'data-signin="' . date("D j @ g:i a", $seat->user->lastSignIn()->inout_time) . '"' : "" )
 										. 'data-seat-id="' . $seat->id . '" class="seat'
 										. ($seat->isOccupied() ? " occupied" : "")
-										. ($seat->user->lastSignIn() && $seat->user->lastSignIn()->sign_type == 'in' ? " signedin" : " signedout")
+										//. ($seat->isOccupied() && $seat->user->lastSignIn() && $seat->user->lastSignIn()->sign_type == 'in' ? " signedin" : " signedout")
 										. '" data-type="' . $seat->seat_type . '">'
 											. '<i class="fa fa-arrow-' . $seat->seat_direction . '"></i>';
 						if($seat->user && !empty($seat->user->avatar_url)) {
